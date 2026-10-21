@@ -15,12 +15,17 @@ export interface BuyerAccount {
   email: string;
   phone: string;
   country: string;
-  city: string; // e.g. Karachi, Lahore, Faisalabad, Rawalpindi, London, Chicago
-  ntnOrTaxId: string; // FBR NTN (7 digits + 1 check digit) or Resale ID
-  taxOrResaleId?: string; // alias for backwards compatibility
-  strnNumber?: string; // Sales Tax Registration Number
-  chamberMember?: string; // e.g. KCCI, LCCI, FCCI
-  businessType: 'Boutique Owner' | 'Multi-Door Retailer' | 'Online Apparel Store' | 'Wholesale Distributor / Jobber' | 'Wholesale Distributor';
+  city: string;
+  ntnOrTaxId: string;
+  taxOrResaleId?: string;
+  strnNumber?: string;
+  chamberMember?: string;
+  businessType:
+    | 'Boutique Owner'
+    | 'Multi-Door Retailer'
+    | 'Online Apparel Store'
+    | 'Wholesale Distributor / Jobber'
+    | 'Wholesale Distributor';
   annualVolume: string;
   status: BuyerStatus;
   appliedDate: string;
@@ -29,7 +34,6 @@ export interface BuyerAccount {
   creditTerms?: string;
   assignedTier: 'TIER_1_STANDARD' | 'TIER_2_VOLUME' | 'TIER_3_ENTERPRISE';
 }
-
 
 export interface Colorway {
   id: string;
@@ -41,32 +45,44 @@ export interface Colorway {
 export interface ClothingProduct {
   id: string;
   sku: string;
+  slug?: string;
   title: string;
   collection: string;
   category: 'WOMENS_STITCHED' | 'KIDS_STITCHED';
-  suitType: string; // e.g. "3-Piece Stitched Luxury Lawn Suit", "2-Piece Embroidered Pret Set", "Kids 3-Piece Festive Gharara"
+  subCategory?: string;
+  suitType: string;
   fabric: {
-    base: string; // e.g. "80/80 Combed Mercerized Lawn"
-    dupattaOrBottom: string; // e.g. "Organza Zari Jacquard with Scalloped Borders"
-    stitchDensity: string; // e.g. "12-14 Stitches Per Inch (Lockstitch)"
-    embroidery: string; // e.g. "Multi-head Zari & Silk Threadwork with Schiffli Cutwork"
+    base: string;
+    dupattaOrBottom: string;
+    stitchDensity: string;
+    embroidery: string;
   };
-  moq: number; // Minimum Order Quantity in total sets
+  moq: number;
+  retailBenchmarkPkr?: number;
   pricingTiers: {
     minQty: number;
     maxQty?: number;
     pricePerUnit: number;
   }[];
   colorways: Colorway[];
-  sizeRange: string[]; // e.g. ['XS', 'S', 'M', 'L', 'XL'] or ['2Y-3Y', '4Y-5Y', '6Y-7Y', '8Y-9Y', '10Y-12Y']
+  colorSwatchesClickable?: boolean;
+  sizeRange: string[];
   gramsPerPiece: number;
   piecesPerCarton: number;
   leadTimeDays: number;
   heroImage: string;
   catalogImage: string;
+  thumbnailImage?: string;
+  s3Bucket?: string;
+  s3Key?: string;
+  sourceImageOrigin?: string;
+  pipelineMode?: string;
   assetPackZipUrl: string;
   readyToShipUnits: number;
   featured: boolean;
+  bestSeller?: boolean;
+  cityDemand?: string;
+  updatedAt?: string;
 }
 
 export interface BulkCartItem {
@@ -89,6 +105,8 @@ export interface WholesaleOrder {
   date: string;
   buyerName: string;
   businessName: string;
+  city?: string;
+  phone?: string;
   items: {
     productTitle: string;
     sku: string;
@@ -99,13 +117,27 @@ export interface WholesaleOrder {
   totalPieces: number;
   subtotal: number;
   estimatedFreight: number;
-  incoterm: 'FOB Karachi' | 'CIF New York' | 'CIF London' | 'DDP Express Air';
+  incoterm:
+    | 'TCS Overland Bilti'
+    | 'Daewoo FastEx Cargo'
+    | 'Leopard Overland Bilti'
+    | 'Truck Adda Cargo'
+    | 'FOB Karachi'
+    | 'CIF New York'
+    | 'CIF London'
+    | 'DDP Express Air';
   totalAmount: number;
-  paymentStatus: 'PAID' | 'PROFORMA_ISSUED' | 'LETTER_OF_CREDIT';
-  fulfillmentStatus: 'QUEUED' | 'IN_PRODUCTION' | 'QUALITY_INSPECTED' | 'IN_TRANSIT' | 'CUSTOMS_CLEARED' | 'DELIVERED';
+  paymentStatus: 'PAID' | 'PROFORMA_ISSUED' | 'LETTER_OF_CREDIT' | '50%_ADVANCE_BILTI';
+  fulfillmentStatus:
+    | 'QUEUED'
+    | 'IN_PRODUCTION'
+    | 'QUALITY_INSPECTED'
+    | 'IN_TRANSIT'
+    | 'CUSTOMS_CLEARED'
+    | 'DELIVERED';
   trackingNumber: string;
   carrier: string;
-  cargoType: 'Air Cargo Priority' | 'Ocean LCL Freight' | 'DHL Global Forwarding';
+  cargoType: 'Domestic Overland Bilti' | 'Air Cargo Priority' | 'Ocean LCL Freight' | 'DHL Global Forwarding';
   estimatedDelivery: string;
   milestones: {
     step: string;
@@ -122,6 +154,7 @@ export interface ImageProcessingPipelineJob {
   webpSizeBytes: number;
   compressionRatio: string;
   status: 'SANITIZING' | 'COMPRESSING' | 'GENERATING_ASSETS' | 'CDN_STORED';
+  s3Bucket?: string;
   cdnUrls: {
     original: string;
     catalog1200: string;

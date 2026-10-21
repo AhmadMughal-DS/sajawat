@@ -1,6 +1,6 @@
 {
-  "name": "Sutura B2B Wholesale Atelier",
-  "description": "High-performance B2B wholesale platform for women's and children's stitched clothing with bulk matrix ordering, gated wholesale pricing, and automated catalog pipeline.",
+  "name": "Sajawat® — Stitched Women & Kids Wholesale Pakistan",
+  "description": "Pakistan's #1 Factory-Direct B2B Wholesale Platform for Women's Stitched Suits (Chiffon, 9000 Velvet, Dhanak, Organza) & Kids' Festive Stitched Clothing. Bulk Matrix Ordering, AWS S3 + MongoDB Automated Pipeline & Nationwide Bilti Dispatch.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

@@ -1,0 +1,1833 @@
+{
+  "generatedAt": "2026-10-21T12:00:50.383858+00:00",
+  "s3Bucket": "sajawat-wholesale-assets",
+  "awsRegion": "us-east-1",
+  "mongoDatabase": "sajawat_wholesale",
+  "brandAssets": {
+    "logoJpeg": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/brand/sajawat-logo.jpeg",
+    "logoWebp": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/brand/sajawat-logo.webp",
+    "ogBanner": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/brand/og-banner.jpg"
+  },
+  "products": [
+    {
+      "id": "sjw-w-001",
+      "sku": "SJW-W-2026-CHF01",
+      "slug": "majestic-gold-embroidered-chiffon-3pc-stitched-suit",
+      "match_title": "Majestic Gold-Embroidered Chiffon 3-Pcs",
+      "title": "Majestic Gold Tilla & Zari Embroidered Chiffon 3-Piece Stitched Suit",
+      "collection": "Sajawat Luxury Festive Chiffon '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "3-Piece Luxury Chiffon",
+      "suitType": "3-Piece Stitched Formal (Embroidered Chiffon Shirt, Silk Crepe Trouser & Scalloped Organza Dupatta)",
+      "fabric": {
+        "base": "Pure Bamber Crinkle Chiffon with Full Inner Silk Slip Attached",
+        "dupattaOrBottom": "4-Side Zari Cutwork Organza Dupatta & Dyed Grip Silk Straight Trouser",
+        "stitchDensity": "14 SPI Boutique Lockstitch with Hidden Piping & Overlocked Seams",
+        "embroidery": "Multi-head Gold Tilla, Zari, Sequins & Resham Neckline/Daman Work"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 5930,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 3650
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 3350
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 3050
+        }
+      ],
+      "colorways": [
+        {
+          "id": "obsidian_gold",
+          "name": "Obsidian Black & Antique Gold",
+          "hexCode": "#1C1917",
+          "inStockPieces": 420
+        },
+        {
+          "id": "plum_berry",
+          "name": "Sajawat Royal Plum",
+          "hexCode": "#5E1B42",
+          "inStockPieces": 360
+        },
+        {
+          "id": "emerald_zari",
+          "name": "Bottle Emerald",
+          "hexCode": "#064E3B",
+          "inStockPieces": 310
+        },
+        {
+          "id": "maroon_gold",
+          "name": "Deep Bridal Maroon",
+          "hexCode": "#65000B",
+          "inStockPieces": 290
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 680,
+      "piecesPerCarton": 24,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1380,
+      "featured": true,
+      "bestSeller": true,
+      "cityDemand": "High Demand in Lahore, Karachi & Rawalpindi Boutiques",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-CHF01_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/7B4958E9-420D-4E02-82B8-5A2401F2F6EA.png?v=1792240031",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-CHF01/asset-pack",
+      "updatedAt": "2026-10-21T12:00:27.077398+00:00"
+    },
+    {
+      "id": "sjw-w-002",
+      "sku": "SJW-W-2026-VLV02",
+      "slug": "nayab-royal-micro-velvet-embroidered-3pc-stitched",
+      "match_title": "Nayab Velvet Embroidered 3-Piece",
+      "title": "Nayab 9000 Micro-Velvet Zari Embroidered 3-Piece Stitched Suit",
+      "collection": "Sajawat Shahi Velvet Heritage '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "3-Piece Shahi Velvet",
+      "suitType": "3-Piece Stitched Winter Formal (9000 Micro-Velvet Shirt, Silk Trouser & Embroidered Organza Shawl)",
+      "fabric": {
+        "base": "Export-Grade 9000 Micro-Velvet (Zero-Shedding Plush Pile)",
+        "dupattaOrBottom": "Heavy Zari Palla Embroidered Organza Dupatta & Raw Silk Trouser",
+        "stitchDensity": "14 SPI Reinforced Velvet Needle Lockstitch with Silk Facing",
+        "embroidery": "Antique Dabka-Style Kora, Copper Tilla & Marori Heavy Neckline"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 6860,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 4250
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 3890
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 3550
+        }
+      ],
+      "colorways": [
+        {
+          "id": "royal_plum",
+          "name": "Royal Aubergine Plum",
+          "hexCode": "#4A154B",
+          "inStockPieces": 340
+        },
+        {
+          "id": "crimson_velvet",
+          "name": "Shahi Crimson Red",
+          "hexCode": "#7F1D1D",
+          "inStockPieces": 380
+        },
+        {
+          "id": "midnight_teal",
+          "name": "Peacock Midnight",
+          "hexCode": "#134E4A",
+          "inStockPieces": 290
+        },
+        {
+          "id": "jet_black",
+          "name": "Jet Velvet Noir",
+          "hexCode": "#18181B",
+          "inStockPieces": 410
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 860,
+      "piecesPerCarton": 20,
+      "leadTimeDays": 4,
+      "readyToShipUnits": 1420,
+      "featured": true,
+      "bestSeller": true,
+      "cityDemand": "Top Wedding Season Seller — Lahore, Islamabad & UK Export",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-VLV02_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/22600E38-0B37-4ECA-A1D0-6A191CCF1F19.jpg?v=1791026069",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-VLV02/asset-pack",
+      "updatedAt": "2026-10-21T12:00:29.214158+00:00"
+    },
+    {
+      "id": "sjw-w-003",
+      "sku": "SJW-W-2026-TLA03",
+      "slug": "chiffon-silver-tilla-embroidered-plazzo-3pc-suit",
+      "match_title": "Chiffon Silver Tilla embroidered 3-Pcs",
+      "title": "Silver Tilla & Resham Chiffon 3-Piece Stitched Plazzo Ensemble",
+      "collection": "Sajawat Luxury Festive Chiffon '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "3-Piece Luxury Chiffon",
+      "suitType": "3-Piece Stitched Partywear (Embroidered Chiffon Kameez, Flared Plazzo & Cutwork Dupatta)",
+      "fabric": {
+        "base": "Fine Crinkle Chiffon with Soft Malai Crepe Full Lining",
+        "dupattaOrBottom": "Embroidered Border Wide-Leg Plazzo & Chiffon Sequined Dupatta",
+        "stitchDensity": "14 SPI Boutique Tailoring with Double Interlock",
+        "embroidery": "Intricate Silver Zari Tilla Floral Jaal & Scalloped Hem"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 4125,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 2650
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 2420
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 2190
+        }
+      ],
+      "colorways": [
+        {
+          "id": "rose_mauve",
+          "name": "Dusty Rose Mauve",
+          "hexCode": "#9D4E6D",
+          "inStockPieces": 460
+        },
+        {
+          "id": "ice_blue",
+          "name": "Silver Ice Blue",
+          "hexCode": "#7DD3FC",
+          "inStockPieces": 390
+        },
+        {
+          "id": "pistachio",
+          "name": "Festive Pistachio",
+          "hexCode": "#A7F3D0",
+          "inStockPieces": 340
+        },
+        {
+          "id": "champagne",
+          "name": "Champagne Beige",
+          "hexCode": "#E7E5E4",
+          "inStockPieces": 410
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 620,
+      "piecesPerCarton": 24,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1600,
+      "featured": true,
+      "bestSeller": false,
+      "cityDemand": "Fast-Moving Boutique Stock — Karachi Tariq Rd & Faisalabad",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-TLA03_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/BEF61F8A-F09E-4D29-B30D-97DD7D24C5ED.jpg?v=1791982973",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-TLA03/asset-pack",
+      "updatedAt": "2026-10-21T12:00:31.273932+00:00"
+    },
+    {
+      "id": "sjw-w-004",
+      "sku": "SJW-W-2026-DHN04",
+      "slug": "winter-dhanak-suit-with-palachi-velvet-shawl-3pc",
+      "match_title": "Winter Dhanak suit with Palachi velvet shawl 3-Pcs",
+      "title": "Heritage Winter Dhanak 3-Piece Stitched Suit with Palachi Velvet Shawl",
+      "collection": "Sajawat Winter Shawl Edit '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "3-Piece Dhanak & Shawl",
+      "suitType": "3-Piece Stitched Winter Suit (Embroidered Dhanak Shirt, Straight Trouser & Palachi Velvet Shawl)",
+      "fabric": {
+        "base": "Heavy Fall Mercerized Winter Dhanak (Zero Pilling Guarantee)",
+        "dupattaOrBottom": "Full-Size 2.5 Meter Palachi Velvet Jacquard Shawl with 4-Side Tilla Border",
+        "stitchDensity": "13 SPI Heavy-Duty Winter Lockstitch",
+        "embroidery": "Kashmiri-Inspired Floral Resham & Zari Neckline Embroidery"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 3980,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 2550
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 2320
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 2100
+        }
+      ],
+      "colorways": [
+        {
+          "id": "charcoal_shawl",
+          "name": "Noir Black & Maroon Shawl",
+          "hexCode": "#27272A",
+          "inStockPieces": 520
+        },
+        {
+          "id": "mustard_olive",
+          "name": "Deep Olive & Mustard",
+          "hexCode": "#3F6212",
+          "inStockPieces": 440
+        },
+        {
+          "id": "burgundy_plum",
+          "name": "Sajawat Wine Burgundy",
+          "hexCode": "#701A75",
+          "inStockPieces": 390
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 790,
+      "piecesPerCarton": 24,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1350,
+      "featured": true,
+      "bestSeller": true,
+      "cityDemand": " #1 Winter Wholesale Hit — Rawalpindi, Peshawar, Lahore & Quetta",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-DHN04_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/3D202C67-D736-42BA-A95B-262C3757279C.jpg?v=1791953802",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-DHN04/asset-pack",
+      "updatedAt": "2026-10-21T12:00:25.879359+00:00"
+    },
+    {
+      "id": "sjw-w-005",
+      "sku": "SJW-W-2026-RGL05",
+      "slug": "the-regal-velvet-heirloom-3pc-stitched-formal",
+      "match_title": "The Regal Velvet Heirloom 3-Pcs",
+      "title": "The Regal Heirloom 9000 Velvet 3-Piece Stitched Bridal-Pret Ensemble",
+      "collection": "Sajawat Shahi Velvet Heritage '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "3-Piece Shahi Velvet",
+      "suitType": "3-Piece Stitched Luxury Formal (Heavily Embellished Velvet Shirt, Jamawar Trouser & Net/Organza Shawl)",
+      "fabric": {
+        "base": "Plush 9000 Micro-Velvet with Silk Satin Inner Facing",
+        "dupattaOrBottom": "Cutwork Organza Shawl with Velvet Applique Pallu & Silk Straight Pants",
+        "stitchDensity": "14 SPI Couture Finish with Concealed Hems",
+        "embroidery": "Heavy Zardozi-inspired Tilla, Sitara & Multi-head Threadwork"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 8360,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 4950
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 4550
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 4190
+        }
+      ],
+      "colorways": [
+        {
+          "id": "crimson_heirloom",
+          "name": "Bridal Ruby Crimson",
+          "hexCode": "#881337",
+          "inStockPieces": 260
+        },
+        {
+          "id": "emerald_heirloom",
+          "name": "Nawab Emerald",
+          "hexCode": "#065F46",
+          "inStockPieces": 240
+        },
+        {
+          "id": "plum_heirloom",
+          "name": "Royal Magenta Plum",
+          "hexCode": "#6B21A8",
+          "inStockPieces": 300
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 920,
+      "piecesPerCarton": 18,
+      "leadTimeDays": 5,
+      "readyToShipUnits": 800,
+      "featured": false,
+      "bestSeller": false,
+      "cityDemand": "High-Margin Boutique Display Piece — Gulberg Lahore & Clifton Karachi",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-RGL05_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/ABF4DAF4-7512-4E55-8133-E768CD95482E.jpg?v=1791348489",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-RGL05/asset-pack",
+      "updatedAt": "2026-10-21T12:00:31.159959+00:00"
+    },
+    {
+      "id": "sjw-w-006",
+      "sku": "SJW-W-2026-MRR06",
+      "slug": "husna-mirror-embroidered-3pc-stitched-festive-suit",
+      "match_title": "Husna",
+      "title": "Husna Mirror-Work & Resham Embroidered 3-Piece Stitched Festive Suit",
+      "collection": "Sajawat Festive Pret Collection '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "3-Piece Festive Pret",
+      "suitType": "3-Piece Stitched Shalwar Kameez (Mirror-Work Kameez, Tailored Trouser & Chiffon Dupatta)",
+      "fabric": {
+        "base": "Mercerized Textured Cotton-Silk Lawn (All-Season Breathable Weave)",
+        "dupattaOrBottom": "Crinkle Chiffon Dupatta with 4-Side Mirror Lace & Cambric Trouser",
+        "stitchDensity": "14 SPI Lockstitch with Reinforced Side Slits (Chaak)",
+        "embroidery": "Authentic Foil-Mirror (Sheesha) Lock Embroidery with Resham Thread"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 4700,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 2890
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 2650
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 2390
+        }
+      ],
+      "colorways": [
+        {
+          "id": "magenta_rose",
+          "name": "Festive Magenta Rose",
+          "hexCode": "#BE185D",
+          "inStockPieces": 480
+        },
+        {
+          "id": "mustard_gold",
+          "name": "Mehndi Mustard Gold",
+          "hexCode": "#CA8A04",
+          "inStockPieces": 450
+        },
+        {
+          "id": "teal_green",
+          "name": "Ferozi Teal",
+          "hexCode": "#0D9488",
+          "inStockPieces": 390
+        },
+        {
+          "id": "ink_black",
+          "name": "Classic Jet Black",
+          "hexCode": "#171717",
+          "inStockPieces": 510
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 590,
+      "piecesPerCarton": 24,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1830,
+      "featured": true,
+      "bestSeller": true,
+      "cityDemand": "All-Pakistan Best Seller — Multan, Faisalabad, Karachi & Lahore",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-MRR06_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/AAF87F6C-F6E4-49E2-9C37-9C4F4AD16B20.jpg?v=1781443527",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-MRR06/asset-pack",
+      "updatedAt": "2026-10-21T12:00:31.417312+00:00"
+    },
+    {
+      "id": "sjw-w-007",
+      "sku": "SJW-W-2026-ORG07",
+      "slug": "fancy-organza-scalloped-zari-3pc-stitched-suit",
+      "match_title": "Fancy Organza 3PC Suit",
+      "title": "Schiffli Cutwork & Zari Embroidered Pure Organza 3-Piece Stitched Suit",
+      "collection": "Sajawat Luxury Organza Edit '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "3-Piece Luxury Organza",
+      "suitType": "3-Piece Stitched Formal (Embroidered Organza Shirt with Attached Slip, Grip Trouser & Organza Dupatta)",
+      "fabric": {
+        "base": "100% Pure Matte Organza with Soft Crepe Silk Inner Lining",
+        "dupattaOrBottom": "Scalloped Cutwork Organza Dupatta & Straight Grip Silk Pants",
+        "stitchDensity": "14 SPI French Seam Organza Binding (Zero Fray)",
+        "embroidery": "Pastel Resham, Pearl Sequence & Laser Cutwork Daman"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 6390,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 3890
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 3550
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 3250
+        }
+      ],
+      "colorways": [
+        {
+          "id": "lilac_pastel",
+          "name": "Orchid Lilac",
+          "hexCode": "#C084FC",
+          "inStockPieces": 350
+        },
+        {
+          "id": "blush_peach",
+          "name": "Blush Peach Pink",
+          "hexCode": "#FDA4AF",
+          "inStockPieces": 410
+        },
+        {
+          "id": "mint_ice",
+          "name": "Mint Whisper",
+          "hexCode": "#6EE7B7",
+          "inStockPieces": 320
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 610,
+      "piecesPerCarton": 24,
+      "leadTimeDays": 4,
+      "readyToShipUnits": 1080,
+      "featured": false,
+      "bestSeller": false,
+      "cityDemand": "High E-Commerce & Boutique Demand — Islamabad, Lahore & Dubai",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-ORG07_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/18E03B8F-48C3-4BDE-A320-4745D8E333FB.jpg?v=1778421145",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-ORG07/asset-pack",
+      "updatedAt": "2026-10-21T12:00:31.275572+00:00"
+    },
+    {
+      "id": "sjw-w-008",
+      "sku": "SJW-W-2026-SHR08",
+      "slug": "sahar-velvet-tilla-embroidered-2pc-stitched-coord",
+      "match_title": "Sahar Velvet Tilla 2-Piece",
+      "title": "Sahar Golden Tilla Velvet 2-Piece Stitched Kurta & Trouser Co-ord Set",
+      "collection": "Sajawat Ready-to-Wear Pret '26",
+      "category": "WOMENS_STITCHED",
+      "subCategory": "2-Piece Stitched Pret",
+      "suitType": "2-Piece Stitched Pret (Embroidered Velvet Tunic Shirt & Tailored Cigarette Trouser)",
+      "fabric": {
+        "base": "Soft Stretch Micro-Velvet 8500 GSM with Breathable Inner Finish",
+        "dupattaOrBottom": "Matching Velvet Trouser with Tilla Embroidered Ankle Borders",
+        "stitchDensity": "14 SPI Precision Overlocked Seams",
+        "embroidery": "Geometric & Floral Antique Gold Tilla Neckline and Cuffs"
+      },
+      "moq": 12,
+      "retailBenchmarkPkr": 5560,
+      "pricingTiers": [
+        {
+          "minQty": 12,
+          "maxQty": 23,
+          "pricePerUnit": 3250
+        },
+        {
+          "minQty": 24,
+          "maxQty": 47,
+          "pricePerUnit": 2950
+        },
+        {
+          "minQty": 48,
+          "pricePerUnit": 2690
+        }
+      ],
+      "colorways": [
+        {
+          "id": "deep_wine",
+          "name": "Deep Mulberry Wine",
+          "hexCode": "#581C87",
+          "inStockPieces": 490
+        },
+        {
+          "id": "forest_green",
+          "name": "Emerald Pine",
+          "hexCode": "#14532D",
+          "inStockPieces": 420
+        },
+        {
+          "id": "midnight_black",
+          "name": "Classic Obsidian",
+          "hexCode": "#18181B",
+          "inStockPieces": 550
+        }
+      ],
+      "sizeRange": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gramsPerPiece": 640,
+      "piecesPerCarton": 24,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1460,
+      "featured": false,
+      "bestSeller": true,
+      "cityDemand": "Fast Reorder Volume Item — Online Stores & Multi-Brand Outlets",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-W-2026-SHR08_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/5DC6DC0D-D051-47DB-AFFB-2EE1AA95EEE7.jpg?v=1790511100",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-W-2026-SHR08/asset-pack",
+      "updatedAt": "2026-10-21T12:00:31.933731+00:00"
+    },
+    {
+      "id": "sjw-k-001",
+      "sku": "SJW-K-2026-SHR01",
+      "slug": "fancy-girls-silk-sharara-3pc-stitched-festive-suit",
+      "match_title": "Fancy Girls Silk Sharara 3-Piece",
+      "title": "Fancy Girls Raw Silk Embroidered Peplum & Sharara 3-Piece Stitched Set",
+      "collection": "Sajawat Junior Couture Eid & Festive '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Girls 3-Piece Sharara",
+      "suitType": "Kids 3-Piece Stitched Festive Set (Embroidered Silk Kurti, Flared Gharara/Sharara & Organza Dupatta)",
+      "fabric": {
+        "base": "Soft Tissue Raw Silk with 100% Pure Combed Cotton Skin-Safe Lining",
+        "dupattaOrBottom": "Flared Tiered Sharara with Soft Elastic Waistband & Pearl-Edge Dupatta",
+        "stitchDensity": "12 SPI Child-Safe Covered Seams (Zero Scratch Guarantee)",
+        "embroidery": "Multi-head Zari, Gota Patti & Resham Floral Bodice Embroidery"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 2780,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 1790
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 1620
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1450
+        }
+      ],
+      "colorways": [
+        {
+          "id": "rani_pink",
+          "name": "Festive Rani Pink",
+          "hexCode": "#DB2777",
+          "inStockPieces": 620
+        },
+        {
+          "id": "royal_mustard",
+          "name": "Marigold Yellow",
+          "hexCode": "#EAB308",
+          "inStockPieces": 540
+        },
+        {
+          "id": "aqua_mint",
+          "name": "Aqua Turquoise",
+          "hexCode": "#14B8A6",
+          "inStockPieces": 490
+        },
+        {
+          "id": "plum_kids",
+          "name": "Sajawat Berry Purple",
+          "hexCode": "#7E22CE",
+          "inStockPieces": 510
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 360,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 2160,
+      "featured": true,
+      "bestSeller": true,
+      "cityDemand": "#1 Kids Wholesale Seller in Pakistan — Karachi, Lahore & Faisalabad",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-SHR01_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/B8FF546F-468E-4359-98C7-2BCA1EE6A413.jpg?v=1792429456",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-SHR01/asset-pack",
+      "updatedAt": "2026-10-21T12:00:33.747762+00:00"
+    },
+    {
+      "id": "sjw-k-002",
+      "sku": "SJW-K-2026-VLV02",
+      "slug": "kids-white-thread-velvet-2pc-stitched-winter-set",
+      "match_title": "Kids white thread Velvet 2-Pcs",
+      "title": "Kids Kashmiri White-Thread Embroidered Velvet 2-Piece Stitched Set",
+      "collection": "Sajawat Kids Winter Royal '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Kids 2-Piece Velvet",
+      "suitType": "Kids 2-Piece Stitched Winter Set (Embroidered Micro-Velvet Kurta & Straight Pajama/Trouser)",
+      "fabric": {
+        "base": "Plush Feather-Soft Micro-Velvet with Brushed Cotton Inner Neck Facing",
+        "dupattaOrBottom": "Comfort-Stretch Velvet Trouser with Embroidered Cuffs",
+        "stitchDensity": "12 SPI Reinforced Kidswear Lockstitch",
+        "embroidery": "Contrast Ivory White Resham & Threadwork Floral Motifs"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 2599,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 1680
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 1520
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1380
+        }
+      ],
+      "colorways": [
+        {
+          "id": "maroon_white",
+          "name": "Deep Maroon & Ivory",
+          "hexCode": "#7F1D1D",
+          "inStockPieces": 580
+        },
+        {
+          "id": "navy_white",
+          "name": "Royal Navy & Ivory",
+          "hexCode": "#1E3A8A",
+          "inStockPieces": 520
+        },
+        {
+          "id": "plum_white",
+          "name": "Plum Violet & Ivory",
+          "hexCode": "#581C87",
+          "inStockPieces": 490
+        },
+        {
+          "id": "black_white",
+          "name": "Jet Black & Ivory",
+          "hexCode": "#18181B",
+          "inStockPieces": 610
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 410,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 2200,
+      "featured": true,
+      "bestSeller": true,
+      "cityDemand": "Massive Winter Bundle Demand — Lahore Azam Market & Rawalpindi",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-VLV02_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/08EEA099-3521-4E5C-AD94-3AC0AC96DFBB.jpg?v=1790441715",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-VLV02/asset-pack",
+      "updatedAt": "2026-10-21T12:00:36.629192+00:00"
+    },
+    {
+      "id": "sjw-k-003",
+      "sku": "SJW-K-2026-CHF03",
+      "slug": "girls-multi-embroidered-chiffon-sharara-3pc-suit",
+      "match_title": "Multi-Embroidered chiffon Sharara 3-Pcs Suit",
+      "title": "Girls Multi-Resham & Sequined Chiffon Sharara 3-Piece Stitched Suit",
+      "collection": "Sajawat Junior Couture Eid & Festive '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Girls 3-Piece Chiffon",
+      "suitType": "Kids 3-Piece Stitched Partywear (Multi-Embroidered Chiffon Frock/Kurti, Flared Sharara & Dupatta)",
+      "fabric": {
+        "base": "High-Twist Crinkle Chiffon with Soft 100% Cotton Malai Lining",
+        "dupattaOrBottom": " Embroidered Flared Palazzo/Sharara & Lightweight Net Dupatta",
+        "stitchDensity": "12 SPI Soft-Bound Seams for Active Comfort",
+        "embroidery": "Rainbow Resham Threadwork, Micro-Sequins & Golden Tilla Borders"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 2799,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 1820
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 1650
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1490
+        }
+      ],
+      "colorways": [
+        {
+          "id": "mint_multi",
+          "name": "Pistachio Mint & Multi",
+          "hexCode": "#6EE7B7",
+          "inStockPieces": 510
+        },
+        {
+          "id": "blush_multi",
+          "name": "Candy Blush Pink",
+          "hexCode": "#F472B6",
+          "inStockPieces": 590
+        },
+        {
+          "id": "lilac_multi",
+          "name": "Lavender Mist",
+          "hexCode": "#C084FC",
+          "inStockPieces": 440
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 370,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1540,
+      "featured": true,
+      "bestSeller": false,
+      "cityDemand": "High Retail Turnover — Children's Stores in Karachi, Multan & Gujranwala",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-CHF03_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/09417752-3478-4A90-86FD-76426E68BF8F.jpg?v=1791720902",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-CHF03/asset-pack",
+      "updatedAt": "2026-10-21T12:00:35.764069+00:00"
+    },
+    {
+      "id": "sjw-k-004",
+      "sku": "SJW-K-2026-SLK04",
+      "slug": "elegant-girls-silk-sharara-3pc-stitched-partywear",
+      "match_title": "Elegant Girls Silk Sharara 3-Piece",
+      "title": "Elegant Girls Zari Silk Kurti & Gharara 3-Piece Stitched Ensemble",
+      "collection": "Sajawat Junior Couture Eid & Festive '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Girls 3-Piece Sharara",
+      "suitType": "Kids 3-Piece Stitched Set (Zari Embroidered Silk Shirt, Chatta-Patti Style Sharara & Dupatta)",
+      "fabric": {
+        "base": "Lustrous Katan Raw Silk with Breathable Cotton Voile Interlining",
+        "dupattaOrBottom": "Tiered Silk Sharara with Gold Gota Trim & Organza Frill Dupatta",
+        "stitchDensity": "12 SPI Boutique Lockstitch with Adjustable Waist",
+        "embroidery": "Fine Gold Zari & Resham Floral Neckline and Sleeve Motifs"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 2560,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 1650
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 1490
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1350
+        }
+      ],
+      "colorways": [
+        {
+          "id": "crimson_gold",
+          "name": "Festive Crimson & Gold",
+          "hexCode": "#B91C1C",
+          "inStockPieces": 530
+        },
+        {
+          "id": "emerald_gold",
+          "name": "Royal Emerald & Gold",
+          "hexCode": "#047857",
+          "inStockPieces": 480
+        },
+        {
+          "id": "magenta_gold",
+          "name": "Sajawat Plum Magenta",
+          "hexCode": "#86198F",
+          "inStockPieces": 460
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 350,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1470,
+      "featured": false,
+      "bestSeller": true,
+      "cityDemand": "Top Eid & Wedding Season Stock — All Major Wholesale Markets",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-SLK04_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/81A35783-D4CB-4386-95F5-E59293F6A2D3.jpg?v=1792263470",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-SLK04/asset-pack",
+      "updatedAt": "2026-10-21T12:00:36.362386+00:00"
+    },
+    {
+      "id": "sjw-k-005",
+      "sku": "SJW-K-2026-GTL05",
+      "slug": "kids-golden-tilla-velvet-2pc-stitched-festive-suit",
+      "match_title": "Kids Golden Tilla Velvet 2-Pcs",
+      "title": "Kids Shahi Golden Tilla Embroidered Micro-Velvet 2-Piece Stitched Suit",
+      "collection": "Sajawat Kids Winter Royal '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Kids 2-Piece Velvet",
+      "suitType": "Kids 2-Piece Stitched Formal (Gold Tilla Velvet Shirt & Matching Velvet Shalwar/Trouser)",
+      "fabric": {
+        "base": "9000 Grade Soft Micro-Velvet (Warm & Non-Irritating)",
+        "dupattaOrBottom": "Elasticated Velvet Trouser with Gold Tilla Paiencha Border",
+        "stitchDensity": "12 SPI Double-Locked Kidswear Stitching",
+        "embroidery": "Regal Antique Gold Tilla & Sequined Arch Neckline"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 3750,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 2250
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 2050
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1850
+        }
+      ],
+      "colorways": [
+        {
+          "id": "royal_purple",
+          "name": "Imperial Purple & Gold",
+          "hexCode": "#581C87",
+          "inStockPieces": 430
+        },
+        {
+          "id": "bottle_green",
+          "name": "Bottle Green & Gold",
+          "hexCode": "#064E3B",
+          "inStockPieces": 410
+        },
+        {
+          "id": "ruby_maroon",
+          "name": "Ruby Maroon & Gold",
+          "hexCode": "#881337",
+          "inStockPieces": 470
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 430,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 4,
+      "readyToShipUnits": 1310,
+      "featured": true,
+      "bestSeller": false,
+      "cityDemand": "High-Margin Winter Kids Partywear — Lahore, Islamabad & Sialkot",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-GTL05_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/EFFC959A-5220-4707-82E6-8146832EB0CA.jpg?v=1790084853",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-GTL05/asset-pack",
+      "updatedAt": "2026-10-21T12:00:36.321308+00:00"
+    },
+    {
+      "id": "sjw-k-006",
+      "sku": "SJW-K-2026-CTW06",
+      "slug": "kids-chiffon-cutwork-style-3pc-stitched-suit",
+      "match_title": "Chiffon cutwork Style Suit 3-Pcs",
+      "title": "Kids Scalloped Cutwork & Pearl Embroidered Chiffon 3-Piece Stitched Suit",
+      "collection": "Sajawat Junior Couture Eid & Festive '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Girls 3-Piece Chiffon",
+      "suitType": "Kids 3-Piece Stitched Set (Cutwork Chiffon A-Line Shirt, Flared Trouser & Scalloped Dupatta)",
+      "fabric": {
+        "base": "Soft Crinkle Chiffon with Full Pure Cotton Inner Lining",
+        "dupattaOrBottom": "Crepe Silk Flared Culotte Pants & Cutwork Edge Dupatta",
+        "stitchDensity": "12 SPI Smooth Seam Kidswear Finish",
+        "embroidery": "Schiffli Laser Cutwork Daman, Sleeves & Delicate Pearl Pinning"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 2490,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 1620
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 1460
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1320
+        }
+      ],
+      "colorways": [
+        {
+          "id": "sky_pastel",
+          "name": "Powder Sky Blue",
+          "hexCode": "#38BDF8",
+          "inStockPieces": 560
+        },
+        {
+          "id": "peach_blossom",
+          "name": "Peach Blossom",
+          "hexCode": "#FB7185",
+          "inStockPieces": 520
+        },
+        {
+          "id": "lemon_sorbet",
+          "name": "Buttercup Lemon",
+          "hexCode": "#FACC15",
+          "inStockPieces": 450
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 340,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1530,
+      "featured": false,
+      "bestSeller": true,
+      "cityDemand": "Fastest Moving Budget-Friendly Kids 3-Pc — Karachi, Hyderabad & Sukkur",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-CTW06_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/46410DDC-5CCE-42D2-A06A-365FEE14FBA1.jpg?v=1789655184",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-CTW06/asset-pack",
+      "updatedAt": "2026-10-21T12:00:36.908419+00:00"
+    },
+    {
+      "id": "sjw-k-007",
+      "sku": "SJW-K-2026-JKT07",
+      "slug": "kids-chiffon-jacket-style-3pc-stitched-suit",
+      "match_title": "Kids Chiffon Jacket Style 3Pc Suit",
+      "title": "Kids Designer Koti / Jacket-Style Embroidered Chiffon 3-Piece Stitched Suit",
+      "collection": "Sajawat Junior Couture Eid & Festive '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Girls 3-Piece Chiffon",
+      "suitType": "Kids 3-Piece Stitched Set (Embroidered Jacket/Koti Overlay Shirt, Plazzo & Net Dupatta)",
+      "fabric": {
+        "base": "Bamber Chiffon with Attached Embroidered Koti & Cotton Lining",
+        "dupattaOrBottom": "Wide-Leg Festive Plazzo & Tilla Trimmed Net Dupatta",
+        "stitchDensity": "12 SPI Boutique Finish with Tassel Tie-ups",
+        "embroidery": "Gold Zari & Multi-Thread Koti Front and Border Embellishment"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 2650,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 1720
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 1560
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1390
+        }
+      ],
+      "colorways": [
+        {
+          "id": "crimson_koti",
+          "name": "Ruby Red & Gold",
+          "hexCode": "#DC2626",
+          "inStockPieces": 490
+        },
+        {
+          "id": "plum_koti",
+          "name": "Sajawat Plum & Gold",
+          "hexCode": "#701A75",
+          "inStockPieces": 530
+        },
+        {
+          "id": "teal_koti",
+          "name": "Emerald Teal & Gold",
+          "hexCode": "#0F766E",
+          "inStockPieces": 440
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 380,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1460,
+      "featured": false,
+      "bestSeller": false,
+      "cityDemand": "High Boutique Appeal — Faisalabad D-Ground, Lahore & Multan",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-JKT07_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/WhatsAppImage2026-08-24at3.50.59PM.jpg?v=1787568910",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-JKT07/asset-pack",
+      "updatedAt": "2026-10-21T12:00:38.670466+00:00"
+    },
+    {
+      "id": "sjw-k-008",
+      "sku": "SJW-K-2026-PLZ08",
+      "slug": "girls-silk-embroidered-plazzo-3pc-stitched-set",
+      "match_title": "Silk Embroidered plazzo Set -3-pcs",
+      "title": "Girls Luxury Embroidered Raw Silk Kurti & Flared Plazzo 3-Piece Stitched Set",
+      "collection": "Sajawat Junior Couture Eid & Festive '26",
+      "category": "KIDS_STITCHED",
+      "subCategory": "Girls 3-Piece Sharara",
+      "suitType": "Kids 3-Piece Stitched Set (Embroidered Silk Shirt, Embroidered Plazzo & Organza Dupatta)",
+      "fabric": {
+        "base": "Soft Blended Raw Silk with 100% Breathable Cotton Lining",
+        "dupattaOrBottom": "Embroidered Hem Flared Plazzo & Scalloped Organza Dupatta",
+        "stitchDensity": "12 SPI Child-Comfort Lockstitch",
+        "embroidery": "Zari, Sequins & Resham Damask Motifs on Shirt and Plazzo"
+      },
+      "moq": 18,
+      "retailBenchmarkPkr": 2830,
+      "pricingTiers": [
+        {
+          "minQty": 18,
+          "maxQty": 35,
+          "pricePerUnit": 1840
+        },
+        {
+          "minQty": 36,
+          "maxQty": 71,
+          "pricePerUnit": 1680
+        },
+        {
+          "minQty": 72,
+          "pricePerUnit": 1490
+        }
+      ],
+      "colorways": [
+        {
+          "id": "champagne_gold",
+          "name": "Champagne Gold & Rose",
+          "hexCode": "#D4AF37",
+          "inStockPieces": 510
+        },
+        {
+          "id": "rose_pink",
+          "name": "Blush Rose & Gold",
+          "hexCode": "#E11D48",
+          "inStockPieces": 470
+        },
+        {
+          "id": "pistachio_silk",
+          "name": "Pistachio Green",
+          "hexCode": "#10B981",
+          "inStockPieces": 430
+        }
+      ],
+      "sizeRange": [
+        "2Y-3Y",
+        "4Y-5Y",
+        "6Y-7Y",
+        "8Y-9Y",
+        "10Y-12Y"
+      ],
+      "gramsPerPiece": 365,
+      "piecesPerCarton": 36,
+      "leadTimeDays": 3,
+      "readyToShipUnits": 1410,
+      "featured": false,
+      "bestSeller": false,
+      "cityDemand": "Popular Festive Set — Karachi, Lahore, Rawalpindi & UK Boutiques",
+      "heroImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_1200w.webp",
+      "catalogImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_1200w.webp",
+      "thumbnailImage": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_600w.webp",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "s3Key": "catalog/SJW-K-2026-PLZ08_1200w.webp",
+      "sourceImageOrigin": "https://cdn.shopify.com/s/files/1/0947/1560/9366/files/IMG-20260508-WA0037.jpg?v=1778348128",
+      "colorSwatchesClickable": false,
+      "pipelineMode": "S3_CLOUD_AUTO",
+      "assetPackZipUrl": "/api/products/SJW-K-2026-PLZ08/asset-pack",
+      "updatedAt": "2026-10-21T12:00:40.082543+00:00"
+    }
+  ],
+  "pipelineJobs": [
+    {
+      "id": "job-sjw-k-2026-chf03",
+      "fileName": "SJW-K-2026-CHF03_Master_Studio.webp",
+      "originalSizeBytes": 103253,
+      "webpSizeBytes": 104190,
+      "compressionRatio": "25.9%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CHF03_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:35 UTC",
+      "associatedSku": "SJW-K-2026-CHF03"
+    },
+    {
+      "id": "job-sjw-k-2026-ctw06",
+      "fileName": "SJW-K-2026-CTW06_Master_Studio.webp",
+      "originalSizeBytes": 312587,
+      "webpSizeBytes": 221600,
+      "compressionRatio": "29.1%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-CTW06_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:36 UTC",
+      "associatedSku": "SJW-K-2026-CTW06"
+    },
+    {
+      "id": "job-sjw-k-2026-gtl05",
+      "fileName": "SJW-K-2026-GTL05_Master_Studio.webp",
+      "originalSizeBytes": 225061,
+      "webpSizeBytes": 157926,
+      "compressionRatio": "29.8%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-GTL05_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:36 UTC",
+      "associatedSku": "SJW-K-2026-GTL05"
+    },
+    {
+      "id": "job-sjw-k-2026-jkt07",
+      "fileName": "SJW-K-2026-JKT07_Master_Studio.webp",
+      "originalSizeBytes": 243151,
+      "webpSizeBytes": 197906,
+      "compressionRatio": "25.9%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-JKT07_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:38 UTC",
+      "associatedSku": "SJW-K-2026-JKT07"
+    },
+    {
+      "id": "job-sjw-k-2026-plz08",
+      "fileName": "SJW-K-2026-PLZ08_Master_Studio.webp",
+      "originalSizeBytes": 233665,
+      "webpSizeBytes": 150880,
+      "compressionRatio": "35.4%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-PLZ08_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:40 UTC",
+      "associatedSku": "SJW-K-2026-PLZ08"
+    },
+    {
+      "id": "job-sjw-k-2026-shr01",
+      "fileName": "SJW-K-2026-SHR01_Master_Studio.webp",
+      "originalSizeBytes": 246929,
+      "webpSizeBytes": 171860,
+      "compressionRatio": "30.4%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:33 UTC",
+      "associatedSku": "SJW-K-2026-SHR01"
+    },
+    {
+      "id": "job-sjw-k-2026-slk04",
+      "fileName": "SJW-K-2026-SLK04_Master_Studio.webp",
+      "originalSizeBytes": 346783,
+      "webpSizeBytes": 271204,
+      "compressionRatio": "25.9%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SLK04_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:36 UTC",
+      "associatedSku": "SJW-K-2026-SLK04"
+    },
+    {
+      "id": "job-sjw-k-2026-vlv02",
+      "fileName": "SJW-K-2026-VLV02_Master_Studio.webp",
+      "originalSizeBytes": 252968,
+      "webpSizeBytes": 167376,
+      "compressionRatio": "33.8%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-VLV02_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:36 UTC",
+      "associatedSku": "SJW-K-2026-VLV02"
+    },
+    {
+      "id": "job-sjw-w-2026-chf01",
+      "fileName": "SJW-W-2026-CHF01_Master_Studio.webp",
+      "originalSizeBytes": 1907140,
+      "webpSizeBytes": 142228,
+      "compressionRatio": "92.5%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:27 UTC",
+      "associatedSku": "SJW-W-2026-CHF01"
+    },
+    {
+      "id": "job-sjw-w-2026-dhn04",
+      "fileName": "SJW-W-2026-DHN04_Master_Studio.webp",
+      "originalSizeBytes": 174898,
+      "webpSizeBytes": 138328,
+      "compressionRatio": "25.9%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-DHN04_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:25 UTC",
+      "associatedSku": "SJW-W-2026-DHN04"
+    },
+    {
+      "id": "job-sjw-w-2026-mrr06",
+      "fileName": "SJW-W-2026-MRR06_Master_Studio.webp",
+      "originalSizeBytes": 425180,
+      "webpSizeBytes": 223418,
+      "compressionRatio": "47.5%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-MRR06_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:31 UTC",
+      "associatedSku": "SJW-W-2026-MRR06"
+    },
+    {
+      "id": "job-sjw-w-2026-org07",
+      "fileName": "SJW-W-2026-ORG07_Master_Studio.webp",
+      "originalSizeBytes": 323993,
+      "webpSizeBytes": 255732,
+      "compressionRatio": "25.9%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-ORG07_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:31 UTC",
+      "associatedSku": "SJW-W-2026-ORG07"
+    },
+    {
+      "id": "job-sjw-w-2026-rgl05",
+      "fileName": "SJW-W-2026-RGL05_Master_Studio.webp",
+      "originalSizeBytes": 218325,
+      "webpSizeBytes": 143068,
+      "compressionRatio": "34.5%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-RGL05_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:31 UTC",
+      "associatedSku": "SJW-W-2026-RGL05"
+    },
+    {
+      "id": "job-sjw-w-2026-shr08",
+      "fileName": "SJW-W-2026-SHR08_Master_Studio.webp",
+      "originalSizeBytes": 268682,
+      "webpSizeBytes": 189146,
+      "compressionRatio": "29.6%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-SHR08_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:31 UTC",
+      "associatedSku": "SJW-W-2026-SHR08"
+    },
+    {
+      "id": "job-sjw-w-2026-tla03",
+      "fileName": "SJW-W-2026-TLA03_Master_Studio.webp",
+      "originalSizeBytes": 182283,
+      "webpSizeBytes": 108316,
+      "compressionRatio": "40.6%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-TLA03_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:31 UTC",
+      "associatedSku": "SJW-W-2026-TLA03"
+    },
+    {
+      "id": "job-sjw-w-2026-vlv02",
+      "fileName": "SJW-W-2026-VLV02_Master_Studio.webp",
+      "originalSizeBytes": 154084,
+      "webpSizeBytes": 107426,
+      "compressionRatio": "30.3%",
+      "status": "CDN_STORED",
+      "s3Bucket": "sajawat-wholesale-assets",
+      "cdnUrls": {
+        "original": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_1200w.webp",
+        "catalog1200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_1200w.webp",
+        "matrix600": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_600w.webp",
+        "thumb200": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_600w.webp"
+      },
+      "assetZipUrl": "https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-VLV02_1200w.webp",
+      "uploadedAt": "2026-10-21 12:00:29 UTC",
+      "associatedSku": "SJW-W-2026-VLV02"
+    }
+  ],
+  "buyers": [
+    {
+      "id": "buyer-pk-001",
+      "businessName": "Al-Karam & Gulberg Pret Emporium",
+      "contactName": "Haji Muhammad Usman Butt",
+      "email": "usman@gulbergpretlahore.pk",
+      "phone": "+92 300 8472910",
+      "country": "Pakistan",
+      "city": "Lahore (Azam Cloth Market & Liberty)",
+      "ntnOrTaxId": "7421890-3",
+      "taxOrResaleId": "7421890-3",
+      "strnNumber": "32-77-8761-287-90",
+      "chamberMember": "Lahore Chamber of Commerce (LCCI-8921)",
+      "businessType": "Wholesale Distributor / Jobber",
+      "annualVolume": "Rs. 45,000,000 - 75,000,000 PKR",
+      "status": "APPROVED",
+      "appliedDate": "2026-09-14",
+      "approvedDate": "2026-09-15",
+      "documents": [
+        {
+          "name": "FBR_Active_Taxpayer_ATL_2026.pdf",
+          "size": "1.2 MB",
+          "status": "VERIFIED"
+        },
+        {
+          "name": "LCCI_Membership_Certificate.pdf",
+          "size": "1.8 MB",
+          "status": "VERIFIED"
+        }
+      ],
+      "creditTerms": "50% Meezan Bank Advance / 50% Cash on Daewoo Bilti",
+      "assignedTier": "TIER_3_ENTERPRISE"
+    },
+    {
+      "id": "buyer-pk-002",
+      "businessName": "Tariq Road & Rabi Center Stitched Gallery",
+      "contactName": "Muhammad Salman Siddiqui",
+      "email": "salman@tariqroadfashion.pk",
+      "phone": "+92 321 9847120",
+      "country": "Pakistan",
+      "city": "Karachi (Tariq Road & Jama Cloth)",
+      "ntnOrTaxId": "8192304-1",
+      "taxOrResaleId": "8192304-1",
+      "strnNumber": "11-00-9876-543-21",
+      "chamberMember": "Karachi Chamber of Commerce (KCCI-5412)",
+      "businessType": "Multi-Door Retailer",
+      "annualVolume": "Rs. 80,000,000+ PKR",
+      "status": "APPROVED",
+      "appliedDate": "2026-10-02",
+      "approvedDate": "2026-10-03",
+      "documents": [
+        {
+          "name": "FBR_NTN_Certificate_Karachi.pdf",
+          "size": "890 KB",
+          "status": "VERIFIED"
+        },
+        {
+          "name": "Shop_Allotment_Rabi_Center.pdf",
+          "size": "1.5 MB",
+          "status": "VERIFIED"
+        }
+      ],
+      "creditTerms": "Meezan Bank / HBL Online Transfer",
+      "assignedTier": "TIER_3_ENTERPRISE"
+    },
+    {
+      "id": "buyer-pk-003",
+      "businessName": "Karkhana Bazar & D-Ground Kids Palace",
+      "contactName": "Chaudhry Bilal Aslam",
+      "email": "bilal@dgroundfaisalabad.pk",
+      "phone": "+92 333 6512390",
+      "country": "Pakistan",
+      "city": "Faisalabad (D-Ground & Karkhana Bazar)",
+      "ntnOrTaxId": "5934120-7",
+      "taxOrResaleId": "5934120-7",
+      "strnNumber": "24-00-5934-120-19",
+      "chamberMember": "Faisalabad Chamber of Commerce (FCCI-1294)",
+      "businessType": "Boutique Owner",
+      "annualVolume": "Rs. 25,000,000 - 40,000,000 PKR",
+      "status": "PENDING",
+      "appliedDate": "2026-10-20",
+      "documents": [
+        {
+          "name": "FBR_Tax_Registration_2026.pdf",
+          "size": "940 KB",
+          "status": "REVIEW_PENDING"
+        },
+        {
+          "name": "FCCI_Chamber_Card.pdf",
+          "size": "1.1 MB",
+          "status": "REVIEW_PENDING"
+        }
+      ],
+      "assignedTier": "TIER_2_VOLUME"
+    },
+    {
+      "id": "buyer-pk-004",
+      "businessName": "Rabi Center & Raja Bazar Garment House",
+      "contactName": "MalikZeeshan Awan",
+      "email": "zeeshan@rawalpindipret.pk",
+      "phone": "+92 312 5548901",
+      "country": "Pakistan",
+      "city": "Rawalpindi / Islamabad (Murree Road & F-10)",
+      "ntnOrTaxId": "6381920-5",
+      "taxOrResaleId": "6381920-5",
+      "chamberMember": "Rawalpindi Chamber of Commerce (RCCI-3310)",
+      "businessType": "Multi-Door Retailer",
+      "annualVolume": "Rs. 30,000,000 - 50,000,000 PKR",
+      "status": "APPROVED",
+      "appliedDate": "2026-10-11",
+      "approvedDate": "2026-10-12",
+      "documents": [
+        {
+          "name": "RCCI_Certificate_2026.pdf",
+          "size": "1.0 MB",
+          "status": "VERIFIED"
+        }
+      ],
+      "creditTerms": "TCS Overland Cargo COD / Bank Transfer",
+      "assignedTier": "TIER_2_VOLUME"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-pk-901",
+      "orderNumber": "SJW-PO-2026-901",
+      "date": "2026-10-18",
+      "buyerName": "Haji Muhammad Usman Butt",
+      "businessName": "Al-Karam & Gulberg Pret Emporium (Lahore)",
+      "items": [
+        {
+          "productTitle": "Majestic Gold Tilla & Zari Embroidered Chiffon 3-Piece Stitched Suit",
+          "sku": "SJW-W-2026-CHF01",
+          "totalPieces": 48,
+          "unitPrice": 3050,
+          "subtotal": 146400
+        },
+        {
+          "productTitle": "Fancy Girls Raw Silk Embroidered Peplum & Sharara 3-Piece Stitched Set",
+          "sku": "SJW-K-2026-SHR01",
+          "totalPieces": 72,
+          "unitPrice": 1450,
+          "subtotal": 104400
+        }
+      ],
+      "totalPieces": 120,
+      "subtotal": 250800,
+      "estimatedFreight": 4500,
+      "incoterm": "FOB Karachi",
+      "totalAmount": 255300,
+      "paymentStatus": "PAID",
+      "fulfillmentStatus": "IN_TRANSIT",
+      "trackingNumber": "TCS-BILTI-8849201",
+      "carrier": "TCS Overland Cargo & Daewoo FastEx",
+      "cargoType": "Air Cargo Priority",
+      "estimatedDelivery": "2026-10-22 (48-Hour Domestic Bilti)",
+      "milestones": [
+        {
+          "step": "Wholesale PO & Meezan Bank Transfer Verified",
+          "location": "Sajawat Factory HQ",
+          "date": "2026-10-18",
+          "completed": true
+        },
+        {
+          "step": "100% Quality & Size Curve Audit (S, M, L, XL / Kids 2Y-12Y)",
+          "location": "Sajawat Stitching Unit #1",
+          "date": "2026-10-19",
+          "completed": true
+        },
+        {
+          "step": "Master Cartons Strapped & Bilti Issued (TCS-BILTI-8849201)",
+          "location": "Cargo Dispatch Hub",
+          "date": "2026-10-20",
+          "completed": true
+        },
+        {
+          "step": "Arriving at Lahore Azam Market / Gulberg Distribution Hub",
+          "location": "Lahore Cargo Terminal",
+          "date": "2026-10-22",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "ord-pk-884",
+      "orderNumber": "SJW-PO-2026-884",
+      "date": "2026-10-12",
+      "buyerName": "Muhammad Salman Siddiqui",
+      "businessName": "Tariq Road & Rabi Center Stitched Gallery (Karachi)",
+      "items": [
+        {
+          "productTitle": "Nayab 9000 Micro-Velvet Zari Embroidered 3-Piece Stitched Suit",
+          "sku": "SJW-W-2026-VLV02",
+          "totalPieces": 48,
+          "unitPrice": 3550,
+          "subtotal": 170400
+        },
+        {
+          "productTitle": "Kids Kashmiri White-Thread Embroidered Velvet 2-Piece Stitched Set",
+          "sku": "SJW-K-2026-VLV02",
+          "totalPieces": 72,
+          "unitPrice": 1380,
+          "subtotal": 99360
+        }
+      ],
+      "totalPieces": 120,
+      "subtotal": 269760,
+      "estimatedFreight": 2500,
+      "incoterm": "FOB Karachi",
+      "totalAmount": 272260,
+      "paymentStatus": "PAID",
+      "fulfillmentStatus": "DELIVERED",
+      "trackingNumber": "LPD-CARGO-553910",
+      "carrier": "Leopard Overland Bilti Service",
+      "cargoType": "Air Cargo Priority",
+      "estimatedDelivery": "2026-10-14",
+      "milestones": [
+        {
+          "step": "HBL Business Transfer Confirmed",
+          "location": "Karachi Clearing",
+          "date": "2026-10-12",
+          "completed": true
+        },
+        {
+          "step": "5 Master Cartons Packed in Polybags with Barcodes",
+          "location": "Sajawat Dispatch Center",
+          "date": "2026-10-13",
+          "completed": true
+        },
+        {
+          "step": "Delivered to Tariq Road Rabi Center Warehouse",
+          "location": "Karachi South",
+          "date": "2026-10-14",
+          "completed": true
+        }
+      ]
+    }
+  ]
+}

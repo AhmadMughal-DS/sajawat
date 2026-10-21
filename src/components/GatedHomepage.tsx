@@ -1,12 +1,20 @@
 import React from 'react';
 import { UserRole } from '../types/index.ts';
-import { ShieldCheck, Truck, Factory, Award, ArrowRight, Lock, CheckCircle2 } from 'lucide-react';
-import { FACTORY_METRICS } from '../data/mockB2BData.ts';
+import {
+  Truck,
+  ArrowRight,
+  Lock,
+  Sparkles,
+  MapPin,
+  BadgePercent,
+  Layers,
+  MessageCircle,
+} from 'lucide-react';
 
 interface GatedHomepageProps {
   currentRole: UserRole;
   onOpenRegister: () => void;
-  onBrowseCatalog: () => void;
+  onBrowseCatalog: (category?: 'ALL' | 'WOMENS_STITCHED' | 'KIDS_STITCHED') => void;
   onSwitchToRetailer: () => void;
   onOpenArchitecture: () => void;
 }
@@ -16,236 +24,255 @@ export const GatedHomepage: React.FC<GatedHomepageProps> = ({
   onOpenRegister,
   onBrowseCatalog,
   onSwitchToRetailer,
-  onOpenArchitecture,
 }) => {
   return (
-    <div className="space-y-16 pb-16">
-      {/* Editorial B2B Hero Section */}
-      <section className="relative overflow-hidden bg-[#FAF9F5] border-b border-[#E8E8E8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Brand Statement & Gated Value Proposition */}
+    <div className="space-y-10 pb-6">
+      {/* Luminous Luxury Pakistani Wholesale Editorial Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#FAF8F4] to-[#F2ECE1] text-stone-900 border-b border-stone-200/80">
+        {/* Soft luminous ambient accents */}
+        <div className="pointer-events-none absolute -top-28 -right-28 w-[420px] h-[420px] rounded-full bg-[#D4AF37]/12 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-28 -left-28 w-[420px] h-[420px] rounded-full bg-[#8B3264]/8 blur-3xl" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Sajawat® Brand Statement & Pakistan Wholesale Value Prop */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-[#97731B] uppercase">
-                <span className="w-6 h-px bg-[#D4AF37]" />
-                Exclusive B2B Garment Manufacturing & Wholesale
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-2xs border border-stone-200/90 text-[10px] sm:text-xs font-bold tracking-wider text-[#5E1B42] uppercase max-w-full">
+                <Sparkles className="w-3.5 h-3.5 text-[#C59B27] shrink-0" />
+                <span className="truncate">
+                  Pakistan’s #1 Factory-Direct<span className="hidden sm:inline"> Stitched Wholesale Platform</span>
+                </span>
               </div>
 
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#1E1E1E] leading-[1.15]">
-                Direct-from-Mill Stitched Apparel for Modern Boutiques.
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-[52px] font-bold tracking-tight text-stone-900 leading-[1.12]">
+                <span className="text-[#5E1B42]">Sajawat®</span> Stitched Women &amp; Kids Wholesale —{' '}
+                <span className="italic font-normal text-[#8B3264]">38% Below Retail</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-[#555555] max-w-2xl leading-relaxed">
-                Sutura Atelier delivers production-grade stitched collections in women’s luxury pret,
-                ceremonial festive wear, and children’s artisanal kurtas. Strictly wholesale access
-                with rapid matrix ordering, guaranteed MOQs, and consolidated global cargo freight.
+              <p className="text-sm sm:text-base text-stone-600 max-w-2xl leading-relaxed">
+                Built for Pakistani boutique owners, garment shopkeepers, and wholesale resellers across{' '}
+                <strong className="text-stone-900">
+                  Karachi, Lahore, Faisalabad, Rawalpindi, Islamabad &amp; Multan
+                </strong>
+                . Source factory-direct <strong className="text-stone-900">Women’s 3-Piece Chiffon, 9000 Shahi Velvet &amp; Dhanak Shawl Suits</strong>{' '}
+                and <strong className="text-stone-900">Kids’ Festive Silk Sharara &amp; Velvet Sets</strong> in ready-to-sell size bundles with 24–72 hour Bilti dispatch.
               </p>
 
-              {/* Gated Access Notice Banner */}
-              {currentRole === 'GUEST' && (
-                <div className="bg-white border border-[#E0D7C6] rounded-xl p-5 shadow-xs max-w-xl">
-                  <div className="flex items-start gap-3.5">
-                    <div className="p-2 bg-[#FBF8EE] text-[#D4AF37] rounded-lg shrink-0">
-                      <Lock className="w-5 h-5" />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="text-sm font-semibold text-[#1E1E1E]">
-                        Strictly Gated Wholesale Pricing & Matrix Ordering
-                      </h4>
-                      <p className="text-xs text-[#666666] leading-relaxed">
-                        To protect retailer margins and ensure factory-direct integrity, wholesale pricing tiers and bulk order forms are restricted to registered business buyers with valid Resale Permits or Tax IDs.
-                      </p>
-                      <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <button
-                          type="button"
-                          onClick={onOpenRegister}
-                          className="px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[#D4AF37] hover:bg-[#ba9324] text-white rounded transition-colors active:scale-98"
-                        >
-                          Apply for Wholesale Account
-                        </button>
-                        <button
-                          type="button"
-                          onClick={onSwitchToRetailer}
-                          className="text-xs font-medium text-[#1E1E1E] hover:text-[#D4AF37] underline underline-offset-4"
-                        >
-                          Quick Switch to Approved Retailer View
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {currentRole !== 'GUEST' && (
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <button
-                    type="button"
-                    onClick={onBrowseCatalog}
-                    className="px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-[#D4AF37] hover:bg-[#ba9324] text-white rounded shadow-sm transition-all flex items-center gap-2 active:scale-98"
-                  >
-                    Enter Wholesale Catalog
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={onOpenArchitecture}
-                    className="px-5 py-3 text-sm font-medium text-[#1E1E1E] bg-white border border-neutral-300 hover:border-neutral-400 rounded transition-colors"
-                  >
-                    Inspect Full-Stack Architecture
-                  </button>
-                </div>
-              )}
-
-              {/* Manufacturing Metrics Bar */}
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#E8E8E8]">
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold font-mono text-[#1E1E1E] tabular-nums">
-                    120,000+
-                  </div>
-                  <div className="text-xs text-[#777777] mt-0.5">Pcs/Mo Stitched Output</div>
-                </div>
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold font-mono text-[#1E1E1E] tabular-nums">
-                    14 SPI
-                  </div>
-                  <div className="text-xs text-[#777777] mt-0.5">Stitch Density Standard</div>
-                </div>
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold font-mono text-[#1E1E1E] tabular-nums">
-                    42
-                  </div>
-                  <div className="text-xs text-[#777777] mt-0.5">Countries Freight Support</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: High-Fidelity Atelier Showroom Image */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-4/3 lg:aspect-5/4 border border-[#E5E0D5]">
-                <img
-                  src="/src/assets/images/hero_b2b_textile_atelier_1792570274235.jpg"
-                  alt="Sutura Atelier B2B Wholesale Showroom"
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
-                  <div className="text-white space-y-1">
-                    <span className="text-[11px] uppercase tracking-widest text-[#D4AF37] font-semibold">
-                      Live Showroom & Quality Control
-                    </span>
-                    <h3 className="text-base font-serif font-medium">
-                      Spring/Summer 2026 Stitched Collections
-                    </h3>
-                    <p className="text-xs text-neutral-300">
-                      Pure lawn, organza, raw silk, and coordinated kids festive lines ready for container dispatch.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* B2B Trust Pillars Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-7 rounded-xl border border-[#EAEAEA] shadow-2xs space-y-3">
-            <div className="w-11 h-11 rounded-lg bg-[#FAF7ED] flex items-center justify-center text-[#D4AF37]">
-              <Factory className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-semibold text-[#1E1E1E] font-serif">
-              Factory Direct Pricing
-            </h3>
-            <p className="text-sm text-[#666666] leading-relaxed">
-              Eliminate multi-tiered middlemen, agent commissions, and trading markups. Source directly from our export-certified stitching lines with tiered bulk pricing up to 40% below wholesale trading hubs.
-            </p>
-            <div className="text-xs text-[#D4AF37] font-medium pt-1">
-              Zero distributor margins · Transparent cost sheets
-            </div>
-          </div>
-
-          <div className="bg-white p-7 rounded-xl border border-[#EAEAEA] shadow-2xs space-y-3">
-            <div className="w-11 h-11 rounded-lg bg-[#FAF7ED] flex items-center justify-center text-[#D4AF37]">
-              <Award className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-semibold text-[#1E1E1E] font-serif">
-              Verified Ethical Manufacturer
-            </h3>
-            <p className="text-sm text-[#666666] leading-relaxed">
-              Sedex SMETA 4-Pillar Audited, ISO 9001:2015 compliant, and OEKO-TEX Standard 100 certified. Every bulk consignment passes rigorous 100% seam integrity, colorfastness, and AQL 1.5 inspections.
-            </p>
-            <div className="text-xs text-[#D4AF37] font-medium pt-1">
-              Audit certificates available for retail compliance
-            </div>
-          </div>
-
-          <div className="bg-white p-7 rounded-xl border border-[#EAEAEA] shadow-2xs space-y-3">
-            <div className="w-11 h-11 rounded-lg bg-[#FAF7ED] flex items-center justify-center text-[#D4AF37]">
-              <Truck className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-semibold text-[#1E1E1E] font-serif">
-              Global Cargo & Customs Support
-            </h3>
-            <p className="text-sm text-[#666666] leading-relaxed">
-              Seamless logistics integration offering FOB, CIF, and Delivered Duty Paid (DDP) by Air Priority or Ocean LCL/FCL. We handle export documentation, commercial invoices, and tariff harmonizations.
-            </p>
-            <div className="text-xs text-[#D4AF37] font-medium pt-1">
-              Live airway bill & container tracking in buyer portal
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Factory Floor & Capacity Spotlight */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#1E1E1E] text-white rounded-2xl overflow-hidden shadow-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="lg:col-span-6 p-8 sm:p-12 space-y-6 flex flex-col justify-center">
-              <span className="text-xs font-semibold tracking-widest text-[#D4AF37] uppercase">
-                Production Floor & Facility Standards
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-semibold leading-snug">
-                Precision Lockstitch, Industrial Tajima Embroidery & Hand Finishing
-              </h2>
-              <p className="text-sm text-neutral-300 leading-relaxed">
-                Our twin production units house 250+ Japanese Juki lockstitch stations and 36 multi-head Tajima embroidery beds. From intricate cutwork schiffli on pure organza to zero-scratch kidswear lining, each production batch meets international boutique requirements.
-              </p>
-
-              <div className="space-y-2.5 pt-2">
-                <div className="flex items-center gap-2.5 text-xs text-neutral-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>Double-needle overlocked seams with anti-fray bottom bindings</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-xs text-neutral-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>Sanforized and pre-shrunk fabrics (0-1% residual shrinkage)</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-xs text-neutral-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>Pre-packaged in export master cartons with barcode polybags</span>
-                </div>
-              </div>
-
-              <div className="pt-4">
+              {/* Primary CTAs */}
+              <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 pt-1">
                 <button
                   type="button"
-                  onClick={onBrowseCatalog}
-                  className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#ba9324] text-[#1E1E1E] font-semibold text-xs uppercase tracking-wider rounded transition-colors"
+                  onClick={() => onBrowseCatalog('ALL')}
+                  className="px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider bg-[#5E1B42] hover:bg-[#732252] text-white rounded-xl shadow-md transition-all flex items-center justify-center gap-2 active:scale-98"
                 >
-                  View In-Stock Wholesale Lots
+                  Explore Wholesale Catalog
+                  <ArrowRight className="w-4 h-4 text-[#F5D77F]" />
                 </button>
+
+                <button
+                  type="button"
+                  onClick={onOpenRegister}
+                  className="px-5 py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider bg-white hover:bg-stone-50 text-stone-900 border border-stone-300 rounded-xl transition-colors text-center shadow-2xs"
+                >
+                  Register Boutique / Shop
+                </button>
+
+                <a
+                  href="https://wa.me/923008472910?text=Assalam-o-Alaikum%20Sajawat%20Wholesale%20Team%2C%20send%20latest%20Women%20and%20Kids%20stitched%20wholesale%20rate%20list."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-3.5 text-xs font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <MessageCircle className="w-4 h-4 text-emerald-600" />
+                  WhatsApp Rate List
+                </a>
+              </div>
+
+              {/* Role Gating Notice (if user switched to Guest mode) */}
+              {currentRole === 'GUEST' && (
+                <div className="bg-white border border-amber-200 rounded-2xl p-4 max-w-xl shadow-xs">
+                  <div className="flex items-start gap-3">
+                    <Lock className="w-5 h-5 text-[#5E1B42] shrink-0 mt-0.5" />
+                    <div className="space-y-1.5 text-xs">
+                      <div className="font-bold text-stone-900">
+                        Guest Preview Mode Active — Wholesale Tier Rates Locked
+                      </div>
+                      <p className="text-stone-600">
+                        Click below to unlock live Factory FOB/Bilti wholesale tier rates and interactive color/size ordering immediately.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={onSwitchToRetailer}
+                        className="px-3.5 py-1.5 bg-[#5E1B42] text-white font-bold rounded-lg text-xs hover:bg-[#732252] transition-colors"
+                      >
+                        1-Click Unlock Wholesale Prices
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Key Wholesale Metrics Bar */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+                <div className="bg-white/90 border border-stone-200/80 rounded-2xl p-3.5 shadow-2xs">
+                  <div className="text-lg sm:text-xl font-bold font-mono text-[#5E1B42] tabular-nums">
+                    Rs. 1,320
+                  </div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">Kids 3-Pc Starting</div>
+                </div>
+                <div className="bg-white/90 border border-stone-200/80 rounded-2xl p-3.5 shadow-2xs">
+                  <div className="text-lg sm:text-xl font-bold font-mono text-[#5E1B42] tabular-nums">
+                    Rs. 2,100
+                  </div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">Women 3-Pc Starting</div>
+                </div>
+                <div className="bg-white/90 border border-stone-200/80 rounded-2xl p-3.5 shadow-2xs">
+                  <div className="text-lg sm:text-xl font-bold font-mono text-[#5E1B42] tabular-nums">
+                    12–18 Sets
+                  </div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">Low Boutique MOQ</div>
+                </div>
+                <div className="bg-white/90 border border-stone-200/80 rounded-2xl p-3.5 shadow-2xs">
+                  <div className="text-lg sm:text-xl font-bold font-mono text-[#5E1B42] tabular-nums">
+                    24–72 Hrs
+                  </div>
+                  <div className="text-[11px] text-stone-500 mt-0.5">All-Pakistan Bilti</div>
+                </div>
               </div>
             </div>
 
-            <div className="lg:col-span-6 relative min-h-[300px] lg:min-h-full">
-              <img
-                src="/src/assets/images/factory_stitching_production_floor_1792570276341.jpg"
-                alt="Sutura Garment Stitching Plant"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+            {/* Right Column: Dual Visual Showcase (Women & Kids S3 Product Cards) */}
+            <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+              <button
+                type="button"
+                onClick={() => onBrowseCatalog('WOMENS_STITCHED')}
+                className="group relative rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-lg aspect-3/4 text-left focus:outline-none"
+              >
+                <img
+                  src="https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-W-2026-CHF01_1200w.webp"
+                  alt="Women's Stitched Wholesale Suits Pakistan — Chiffon, Velvet & Dhanak"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-3.5 sm:p-4">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#F5D77F] font-semibold">
+                    8 Lots · MOQ 12
+                  </span>
+                  <h2 className="font-serif text-base sm:text-lg font-bold text-white leading-tight mt-0.5">
+                    Women’s Stitched
+                  </h2>
+                  <p className="hidden sm:block text-[11px] text-stone-200 mt-0.5">
+                    Chiffon 3-Pc, 9000 Velvet &amp; Dhanak
+                  </p>
+                  <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[#F5D77F] group-hover:translate-x-1 transition-transform">
+                    Explore Women’s <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onBrowseCatalog('KIDS_STITCHED')}
+                className="group relative rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-lg aspect-3/4 text-left focus:outline-none"
+              >
+                <img
+                  src="https://sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/SJW-K-2026-SHR01_1200w.webp"
+                  alt="Kids' Stitched Festive Wholesale Pakistan — Silk Sharara & Velvet Sets"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-3.5 sm:p-4">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#F5D77F] font-semibold">
+                    8 Lots · MOQ 18
+                  </span>
+                  <h2 className="font-serif text-base sm:text-lg font-bold text-white leading-tight mt-0.5">
+                    Kids’ Festive
+                  </h2>
+                  <p className="hidden sm:block text-[11px] text-stone-200 mt-0.5">
+                    Silk Sharara 3-Pc &amp; Velvet (2Y–12Y)
+                  </p>
+                  <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[#F5D77F] group-hover:translate-x-1 transition-transform">
+                    Explore Kids’ <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pakistan Wholesale Market Hubs Strip */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white border border-stone-200/90 rounded-2xl p-4 sm:p-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 shadow-2xs">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-[#FDF4F8] text-[#5E1B42] border border-[#F3D1E2] shrink-0">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-xs sm:text-sm font-bold text-stone-900 uppercase tracking-wider">
+                Daily Wholesale Bilti Supply Across Pakistan’s Top Garment Markets
+              </h2>
+              <p className="text-xs text-stone-500">
+                Direct master carton delivery via TCS Overland, Daewoo FastEx, Leopard Cargo &amp; Truck Adda:
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
+            {[
+              'Lahore (Azam Market · Liberty · Gulberg)',
+              'Karachi (Tariq Rd · Jama Cloth · Bolton)',
+              'Faisalabad (Karkhana Bazar · D-Ground)',
+              'Rawalpindi (Raja Bazar · Rabi Center)',
+              'Multan & Gujranwala',
+              'UK / USA / UAE Boutiques',
+            ].map((hub) => (
+              <span
+                key={hub}
+                className="px-2.5 py-1 rounded-lg bg-stone-50 border border-stone-200 text-stone-800"
+              >
+                {hub}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3 Core B2B Advantage Pillars */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
+            <div className="w-10 h-10 rounded-xl bg-[#FDF4F8] border border-[#F3D1E2] flex items-center justify-center text-[#5E1B42]">
+              <BadgePercent className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-stone-900 font-serif">
+              35%–42% Cheaper Than www.pehnavaa.com
+            </h3>
+            <p className="text-xs text-stone-600 leading-relaxed">
+              Direct mill wholesale rates starting at <strong>Rs. 1,320 (Kids)</strong> and <strong>Rs. 2,100 (Women)</strong> so boutique owners earn Rs. 1,200–3,500 clear profit per suit.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
+            <div className="w-10 h-10 rounded-xl bg-[#FDF4F8] border border-[#F3D1E2] flex items-center justify-center text-[#5E1B42]">
+              <Layers className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-stone-900 font-serif">
+              Click Any Product for Full Details &amp; Colors
+            </h3>
+            <p className="text-xs text-stone-600 leading-relaxed">
+              Clean, uncluttered catalog browsing — click any stitched suit to open its dedicated product page with interactive color selection, size breakdown, and fabric specs.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
+            <div className="w-10 h-10 rounded-xl bg-[#FDF4F8] border border-[#F3D1E2] flex items-center justify-center text-[#5E1B42]">
+              <Truck className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-stone-900 font-serif">
+              AWS S3 + MongoDB Automated Pipeline
+            </h3>
+            <p className="text-xs text-stone-600 leading-relaxed">
+              Powered by AWS S3 (<code className="font-mono text-[11px] text-[#5E1B42]">sajawat-wholesale-assets</code>) and MongoDB Atlas (<code className="font-mono text-[11px] text-[#5E1B42]">sajawat_wholesale</code>) for instant catalog updates.
+            </p>
           </div>
         </div>
       </section>

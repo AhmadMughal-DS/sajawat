@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /factory-admin
+
+Sitemap: https://www.sajawatwholesale.pk/sitemap.xml

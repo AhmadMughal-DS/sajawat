@@ -6,7 +6,7 @@ import {
   calculateLogisticsPackaging,
   formatCurrency,
 } from '../utils/b2bLogic.ts';
-import { X, CheckCircle, AlertCircle, PackageCheck, Sparkles, Box, Info } from 'lucide-react';
+import { X, CheckCircle, AlertCircle, PackageCheck, Sparkles, Box, TrendingUp } from 'lucide-react';
 
 interface BulkOrderMatrixModalProps {
   product: ClothingProduct | null;
@@ -31,7 +31,6 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
 }) => {
   if (!product) return null;
 
-  // Initialize matrix state: colorwayId -> sizeCode -> quantity
   const [matrix, setMatrix] = useState<MatrixInput>(() => {
     const initial: MatrixInput = {};
     product.colorways.forEach((c) => {
@@ -43,7 +42,6 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
     return initial;
   });
 
-  // Calculate live totals
   const totalPieces = useMemo(() => calculateMatrixTotalPieces(matrix), [matrix]);
 
   const tierResult = useMemo(
@@ -56,7 +54,9 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
     [totalPieces, product.gramsPerPiece, product.piecesPerCarton]
   );
 
-  // Cell quantity change handler
+  const retailBenchmark = product.retailBenchmarkPkr || Math.round((product.pricingTiers[0]?.pricePerUnit || 3000) * 1.62);
+  const estimatedBoutiqueProfit = Math.max(0, totalPieces * (retailBenchmark - tierResult.unitPrice));
+
   const handleCellChange = (colorwayId: string, sizeCode: string, value: string) => {
     const parsed = parseInt(value, 10);
     const safeVal = isNaN(parsed) || parsed < 0 ? 0 : parsed;
@@ -69,16 +69,14 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
     }));
   };
 
-  // Quick fill helper presets for retail store buyers
-  const applyQuickRatio = (multiplier: number) => {
-    setMatrix((prev: MatrixInput) => {
+  // Fill exact target bundle count across colorways & sizes
+  const applyBundlePreset = (perCellQty: number) => {
+    setMatrix(() => {
       const updated: MatrixInput = {};
       product.colorways.forEach((c) => {
         updated[c.id] = {};
         product.sizeRange.forEach((s) => {
-          // Curve standard sizing curve: Medium and Large get 2x, XS/XXL get 1x
-          const weight = s === 'M' || s === 'L' || s === '6Y-7Y' ? 2 : 1;
-          updated[c.id][s] = weight * multiplier;
+          updated[c.id][s] = perCellQty;
         });
       });
       return updated;
@@ -86,7 +84,7 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
   };
 
   const clearMatrix = () => {
-    setMatrix((prev: MatrixInput) => {
+    setMatrix(() => {
       const reset: MatrixInput = {};
       product.colorways.forEach((c) => {
         reset[c.id] = {};
@@ -98,7 +96,6 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
     });
   };
 
-  // Calculate column totals (total per size)
   const columnTotals = useMemo(() => {
     const totals: { [size: string]: number } = {};
     product.sizeRange.forEach((size) => {
@@ -125,34 +122,38 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
     onClose();
   };
 
+  const cellsCount = product.colorways.length * product.sizeRange.length;
+
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-labelledby="matrix-order-title"
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/65 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-6"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
-      <div className="bg-white rounded-2xl max-w-5xl w-full shadow-2xl border border-neutral-200 overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="bg-white rounded-t-2xl sm:rounded-2xl max-w-5xl w-full shadow-2xl border border-[#E5D5C0] overflow-hidden flex flex-col max-h-[94vh] sm:max-h-[92vh]">
         {/* Modal Header */}
-        <div className="bg-[#FAF9F6] px-6 py-4 border-b border-[#E8E6DF] flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-lg bg-neutral-200 overflow-hidden shrink-0 border border-neutral-300">
+        <div className="bg-gradient-to-r from-[#2F0B20] to-[#471231] text-white px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#732252] flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+            <div className="w-11 h-14 sm:w-14 sm:h-16 rounded-xl bg-white/10 overflow-hidden shrink-0 border border-[#E5C158]/50">
               <img
                 src={product.catalogImage}
                 alt={product.title}
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-top"
               />
             </div>
-            <div>
-              <div className="flex items-center gap-2 text-xs">
-                <span className="font-mono font-medium text-[#1E1E1E] bg-white px-2 py-0.5 rounded border border-neutral-200">
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <span className="font-mono font-bold text-[#221A1F] bg-[#F5D77F] px-2 py-0.5 rounded">
                   {product.sku}
                 </span>
-                <span className="text-[#888888] font-sans">·</span>
-                <span className="text-[#777777]">{product.collection}</span>
+                <span className="hidden sm:inline text-[#E5C158]">·</span>
+                <span className="hidden sm:inline text-[#F3DCE8] truncate">{product.collection}</span>
               </div>
-              <h2 id="matrix-order-title" className="font-serif text-xl font-bold text-[#1E1E1E]">
+              <h2 id="matrix-order-title" className="font-serif text-base sm:text-xl font-bold text-white mt-0.5 line-clamp-2">
                 {product.title}
               </h2>
             </div>
@@ -162,22 +163,23 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Close bulk order matrix modal"
-            className="p-2 text-neutral-400 hover:text-neutral-700 rounded-lg hover:bg-neutral-100 transition-colors"
+            className="p-2 text-[#EAD2DF] hover:text-white rounded-lg hover:bg-white/10 transition-colors shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Modal Content */}
-        <div className="p-6 overflow-y-auto space-y-6">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-5">
           {/* Dynamic Tier Cards Bar */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-semibold uppercase tracking-wider text-[#666666]">
-                Dynamic Tier Pricing (FOB Stitched Price per Set):
+          <div className="space-y-2.5">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span className="font-bold uppercase tracking-wider text-[#5E1B42]">
+                Sajawat® Factory Wholesale Volume Tiers (Per Stitched Set):
               </span>
-              <span className="text-neutral-500">
-                Minimum Order Quantity (MOQ): <strong className="text-[#1E1E1E]">{product.moq} Sets</strong>
+              <span className="text-[#6B5360]">
+                Minimum Wholesale Bundle (MOQ): <strong className="text-[#221A1F]">{product.moq} Sets</strong> · Market Retail:{' '}
+                <strong className="line-through text-neutral-500">{formatCurrency(retailBenchmark, currency)}</strong>
               </span>
             </div>
 
@@ -189,23 +191,23 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
                     key={idx}
                     className={`p-3.5 rounded-xl border transition-all ${
                       isActive
-                        ? 'bg-[#FBF8EE] border-[#D4AF37] ring-1 ring-[#D4AF37] shadow-xs'
-                        : 'bg-[#FAFAFA] border-neutral-200 text-neutral-600'
+                        ? 'bg-[#FDF4F8] border-[#5E1B42] ring-2 ring-[#5E1B42]/20 shadow-xs'
+                        : 'bg-[#FAF6F0] border-[#E6D6C1] text-[#5E4A54]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-medium">
-                        {tier.maxQty ? `${tier.minQty} - ${tier.maxQty} sets` : `${tier.minQty}+ sets`}
+                      <span className="text-xs font-mono font-semibold">
+                        {tier.maxQty ? `${tier.minQty} – ${tier.maxQty} sets` : `${tier.minQty}+ sets (Master Rate)`}
                       </span>
                       {isActive && (
-                        <span className="text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 bg-[#D4AF37] text-white rounded">
+                        <span className="text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 bg-[#5E1B42] text-[#F5D77F] rounded">
                           Active Tier
                         </span>
                       )}
                     </div>
-                    <div className="font-mono text-xl font-bold text-[#1E1E1E] tabular-nums mt-1">
+                    <div className="font-mono text-xl font-bold text-[#221A1F] tabular-nums mt-1">
                       {formatCurrency(tier.pricePerUnit, currency)}
-                      <span className="text-xs font-normal text-neutral-500 ml-1">/ set</span>
+                      <span className="text-xs font-normal text-[#6B5360] ml-1">/ set</span>
                     </div>
                   </div>
                 );
@@ -214,83 +216,80 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
 
             {/* Next Tier Incentive Alert */}
             {tierResult.nextTier && (
-              <div className="p-2.5 bg-[#F5F8FF] border border-[#CCD8F5] rounded-lg text-xs text-[#204080] flex items-center justify-between">
-                <span className="flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#3366CC]" />
-                  Volume Upsell: Add <strong>{tierResult.nextTier.unitsNeeded} more sets</strong> to reach
-                  the next tier and save <strong>{formatCurrency(tierResult.nextTier.savingsPerUnit, currency)}/set</strong>!
-                </span>
-                <span className="font-mono font-medium">
-                  Next Price: {formatCurrency(tierResult.nextTier.pricePerUnit, currency)}
+              <div className="p-2.5 bg-[#FDF4F8] border border-[#EBC5D8] rounded-xl text-xs text-[#5E1B42] flex items-start gap-2">
+                <Sparkles className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" />
+                <span>
+                  Volume Discount Alert: Add <strong>{tierResult.nextTier.unitsNeeded} more sets</strong> to unlock{' '}
+                  <strong>{formatCurrency(tierResult.nextTier.pricePerUnit, currency)}/set</strong> (Save{' '}
+                  {formatCurrency(tierResult.nextTier.savingsPerUnit, currency)} per suit)!
                 </span>
               </div>
             )}
           </div>
 
-          {/* Quick Preset Ratios */}
+          {/* Quick Pakistani Bundle Presets */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-neutral-500 font-medium">Quick Fill Presets:</span>
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="text-[#5E4A54] font-semibold">Quick Gaddi / Bundle Fill:</span>
               <button
                 type="button"
-                onClick={() => applyQuickRatio(2)}
-                className="px-2.5 py-1 text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-800 rounded transition-colors"
+                onClick={() => applyBundlePreset(1)}
+                className="px-3 py-1.5 text-xs font-semibold bg-[#FAF3E8] hover:bg-[#5E1B42] hover:text-white text-[#5E1B42] border border-[#E2D0B8] rounded-lg transition-colors"
               >
-                Standard Boutique Pack (24 Sets)
+                1 Set Bundle ({cellsCount} Suits)
               </button>
               <button
                 type="button"
-                onClick={() => applyQuickRatio(4)}
-                className="px-2.5 py-1 text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-800 rounded transition-colors"
+                onClick={() => applyBundlePreset(2)}
+                className="px-3 py-1.5 text-xs font-semibold bg-[#FAF3E8] hover:bg-[#5E1B42] hover:text-white text-[#5E1B42] border border-[#E2D0B8] rounded-lg transition-colors"
               >
-                High-Volume Pack (48 Sets)
+                2 Set Bundles ({cellsCount * 2} Suits)
               </button>
               <button
                 type="button"
-                onClick={() => applyQuickRatio(8)}
-                className="px-2.5 py-1 text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-800 rounded transition-colors"
+                onClick={() => applyBundlePreset(4)}
+                className="px-3 py-1.5 text-xs font-semibold bg-[#FAF3E8] hover:bg-[#5E1B42] hover:text-white text-[#5E1B42] border border-[#E2D0B8] rounded-lg transition-colors"
               >
-                Master Lot (96 Sets)
+                Master Carton ({cellsCount * 4} Suits)
               </button>
             </div>
             <button
               type="button"
               onClick={clearMatrix}
-              className="text-xs text-neutral-500 hover:text-red-600 underline"
+              className="text-xs text-[#6B5360] hover:text-red-600 font-semibold underline"
             >
               Reset Matrix to 0
             </button>
           </div>
 
           {/* Bulk Order Matrix Table */}
-          <div className="border border-[#E5E5E5] rounded-xl overflow-hidden shadow-2xs">
+          <div className="border border-[#E5D5C0] rounded-xl overflow-hidden shadow-2xs">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#F5F4EE] border-b border-[#E2DFD2] text-[#444444]">
-                    <th className="py-3 px-4 font-semibold w-48">Colorway / Fabric Dye</th>
+                  <tr className="bg-[#FAF3E8] border-b border-[#E5D5C0] text-[#3D2B35]">
+                    <th className="py-3 px-3 sm:px-4 font-bold min-w-36 sticky left-0 z-10 bg-[#FAF3E8]">Bundle Color</th>
                     {product.sizeRange.map((size) => (
-                      <th key={size} className="py-3 px-2 font-semibold text-center w-24">
+                      <th key={size} className="py-3 px-2 font-bold text-center w-24">
                         Size {size}
                       </th>
                     ))}
-                    <th className="py-3 px-3 font-semibold text-right w-28">Color Total</th>
-                    <th className="py-3 px-3 font-semibold text-right w-24 text-neutral-500">
-                      In-Stock
+                    <th className="py-3 px-3 font-bold text-right w-28">Color Total</th>
+                    <th className="py-3 px-3 font-semibold text-right w-24 text-[#7A5B6B]">
+                      Ready Stock
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#EAEAEA]">
+                <tbody className="divide-y divide-[#EFE6D8]">
                   {product.colorways.map((c) => {
-                    // Row total
                     let rowSum = 0;
                     product.sizeRange.forEach((s) => {
                       rowSum += matrix[c.id]?.[s] || 0;
                     });
 
                     return (
-                      <tr key={c.id} className="hover:bg-[#FAF9F5] transition-colors">
-                        <td className="py-3 px-4 font-medium text-[#1E1E1E]">
+                      <tr key={c.id} className="hover:bg-[#FDFBF7] transition-colors">
+                        <td className="py-3 px-3 sm:px-4 font-semibold text-[#221A1F] pointer-events-none select-none sticky left-0 z-10 bg-white">
                           <div className="flex items-center gap-2.5">
                             <span
                               className="w-3.5 h-3.5 rounded-full border border-neutral-300 shrink-0"
@@ -311,17 +310,17 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
                                 value={val === 0 ? '' : val}
                                 placeholder="0"
                                 onChange={(e) => handleCellChange(c.id, size, e.target.value)}
-                                className="w-18 py-1.5 px-2 text-center font-mono font-medium text-xs bg-white border border-neutral-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] rounded transition-all outline-none tabular-nums"
+                                className="w-18 py-1.5 px-2 text-center font-mono font-bold text-xs bg-white border border-[#D8C7B2] focus:border-[#5E1B42] focus:ring-1 focus:ring-[#5E1B42] rounded-lg transition-all outline-none tabular-nums"
                                 aria-label={`Quantity for ${c.name} size ${size}`}
                               />
                             </td>
                           );
                         })}
 
-                        <td className="py-3 px-3 text-right font-mono font-bold text-[#1E1E1E] tabular-nums">
+                        <td className="py-3 px-3 text-right font-mono font-bold text-[#5E1B42] tabular-nums">
                           {rowSum}
                         </td>
-                        <td className="py-3 px-3 text-right font-mono text-[11px] text-neutral-500 tabular-nums">
+                        <td className="py-3 px-3 text-right font-mono text-[11px] text-[#7A5B6B] tabular-nums">
                           {c.inStockPieces}
                         </td>
                       </tr>
@@ -329,125 +328,120 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
                   })}
                 </tbody>
                 <tfoot>
-                  <tr className="bg-[#FAF9F6] border-t-2 border-[#D8D4C5] font-semibold text-[#1E1E1E]">
-                    <td className="py-3 px-4 font-bold uppercase tracking-wider text-[11px]">
-                      Column Totals (By Size)
+                  <tr className="bg-[#FAF3E8] border-t-2 border-[#DFCBB2] font-bold text-[#221A1F]">
+                    <td className="py-3 px-3 sm:px-4 uppercase tracking-wider text-[11px] sticky left-0 z-10 bg-[#FAF3E8]">
+                      Size Totals
                     </td>
                     {product.sizeRange.map((size) => (
                       <td key={size} className="py-3 px-2 text-center font-mono text-xs tabular-nums">
                         {columnTotals[size]}
                       </td>
                     ))}
-                    <td className="py-3 px-3 text-right font-mono font-bold text-sm text-[#D4AF37] tabular-nums">
+                    <td className="py-3 px-3 text-right font-mono font-bold text-sm text-[#5E1B42] tabular-nums">
                       {totalPieces}
                     </td>
-                    <td className="py-3 px-3 text-right text-[11px] text-neutral-400">Total Sets</td>
+                    <td className="py-3 px-3 text-right text-[11px] text-[#7A5B6B]">Total Suits</td>
                   </tr>
                 </tfoot>
               </table>
             </div>
           </div>
 
-          {/* Export Packaging & Logistics Estimation Strip */}
-          <div className="bg-[#F9F9F8] border border-[#E7E7E5] rounded-xl p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+          {/* Packaging, Bilti & Boutique Profit Strip */}
+          <div className="bg-[#FAF6F0] border border-[#E6D6C1] rounded-xl p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
             <div className="flex items-center gap-2.5">
-              <div className="p-2 bg-white rounded-lg border border-neutral-200 text-[#D4AF37]">
+              <div className="p-2 bg-white rounded-lg border border-[#E2D0B8] text-[#5E1B42]">
                 <Box className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-neutral-500 text-[11px]">Master Cartons:</div>
-                <div className="font-mono font-bold text-[#1E1E1E] tabular-nums">
-                  {packaging.cartonCount} Boxes ({product.piecesPerCarton} pcs/box)
+                <div className="text-[#6B5360] text-[11px]">Master Bilti Cartons:</div>
+                <div className="font-mono font-bold text-[#221A1F] tabular-nums">
+                  {packaging.cartonCount} Parcels ({product.piecesPerCarton} pcs/box)
                 </div>
               </div>
             </div>
 
             <div>
-              <div className="text-neutral-500 text-[11px]">Gross Cargo Weight:</div>
-              <div className="font-mono font-bold text-[#1E1E1E] tabular-nums">
+              <div className="text-[#6B5360] text-[11px]">Gross Bilti Weight:</div>
+              <div className="font-mono font-bold text-[#221A1F] tabular-nums">
                 {packaging.totalWeightKg} kg
               </div>
             </div>
 
             <div>
-              <div className="text-neutral-500 text-[11px]">Est. CBM Volume:</div>
-              <div className="font-mono font-bold text-[#1E1E1E] tabular-nums">
-                {packaging.estimatedCbm} CBM
+              <div className="text-[#6B5360] text-[11px]">Recommended Dispatch:</div>
+              <div className="font-semibold text-[#221A1F]">
+                TCS Overland / Daewoo FastEx Bilti
               </div>
             </div>
 
-            <div>
-              <div className="text-neutral-500 text-[11px]">Recommended Freight:</div>
-              <div className="font-semibold text-[#1E1E1E]">
-                {packaging.recommendedFreightMethod === 'EXPRESS_AIR' && 'Express Air Cargo'}
-                {packaging.recommendedFreightMethod === 'AIR_CARGO' && 'Consolidated Air Freight'}
-                {packaging.recommendedFreightMethod === 'OCEAN_LCL' && 'Ocean LCL (Palletized)'}
-                {packaging.recommendedFreightMethod === 'OCEAN_FCL' && 'Ocean FCL (20ft Container)'}
+            <div className="bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-1.5">
+              <div className="text-emerald-800 text-[10px] font-semibold flex items-center gap-1">
+                <TrendingUp className="w-3 h-3" />
+                Est. Boutique Resale Profit:
+              </div>
+              <div className="font-mono font-bold text-sm text-emerald-700 tabular-nums">
+                +{formatCurrency(estimatedBoutiqueProfit, currency)}
               </div>
             </div>
           </div>
 
-          {/* MOQ Status Check */}
+          {/* MOQ Check */}
           <div className="flex items-center justify-between text-xs px-1">
             {totalPieces >= product.moq ? (
-              <div className="flex items-center gap-1.5 text-emerald-700 font-medium">
+              <div className="flex items-center gap-1.5 text-emerald-700 font-semibold">
                 <CheckCircle className="w-4 h-4 text-emerald-600" />
                 <span>
-                  Order meets MOQ requirement ({totalPieces} / {product.moq} sets minimum). Ready for bulk production dispatch.
+                  Meets Sajawat® Wholesale MOQ ({totalPieces} / {product.moq} sets minimum). Ready for Bilti dispatch!
                 </span>
               </div>
             ) : (
-              <div className="flex items-center gap-1.5 text-amber-700 font-medium">
+              <div className="flex items-center gap-1.5 text-amber-800 font-medium">
                 <AlertCircle className="w-4 h-4 text-amber-600" />
                 <span>
-                  Under MOQ: Need {tierResult.moqDeficit} more sets to meet minimum order threshold of {product.moq} sets.
+                  Add {tierResult.moqDeficit} more sets to reach the standard wholesale bundle of {product.moq} sets (or click &ldquo;1 Set Bundle&rdquo; above).
                 </span>
               </div>
             )}
           </div>
         </div>
 
-        {/* Modal Footer: Subtotal and Add to Cart Action */}
-        <div className="bg-[#FAF9F6] px-6 py-4 border-t border-[#E8E6DF] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-6">
-            <div>
-              <div className="text-[11px] text-neutral-500 uppercase tracking-wide">
-                Total Sets Ordered
+        {/* Modal Footer */}
+        <div className="bg-[#FAF3E8] px-4 sm:px-6 py-3.5 sm:py-4 border-t border-[#E5D5C0] flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 sm:gap-4">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6">
+            <div className="min-w-0">
+              <div className="text-[10px] text-[#6B5360] uppercase tracking-wide font-semibold">
+                Total Suits
               </div>
-              <div className="text-xl font-bold font-mono text-[#1E1E1E] tabular-nums">
-                {totalPieces} <span className="text-xs font-normal text-neutral-500">sets</span>
-              </div>
-            </div>
-
-            <div className="h-8 w-px bg-neutral-300" />
-
-            <div>
-              <div className="text-[11px] text-neutral-500 uppercase tracking-wide">
-                Active Unit Price
-              </div>
-              <div className="text-xl font-bold font-mono text-[#1E1E1E] tabular-nums">
-                {formatCurrency(tierResult.unitPrice, currency)}{' '}
-                <span className="text-xs font-normal text-neutral-500">/ set</span>
+              <div className="text-base sm:text-xl font-bold font-mono text-[#221A1F] tabular-nums">
+                {totalPieces} <span className="text-xs font-normal text-[#6B5360]">sets</span>
               </div>
             </div>
 
-            <div className="h-8 w-px bg-neutral-300" />
-
-            <div>
-              <div className="text-[11px] text-neutral-500 uppercase tracking-wide">
-                FOB Mill Subtotal
+            <div className="min-w-0">
+              <div className="text-[10px] text-[#6B5360] uppercase tracking-wide font-semibold">
+                Rate / Suit
               </div>
-              <div className="text-2xl font-bold font-mono text-[#D4AF37] tabular-nums">
+              <div className="text-base sm:text-xl font-bold font-mono text-[#221A1F] tabular-nums truncate">
+                {formatCurrency(tierResult.unitPrice, currency)}
+              </div>
+            </div>
+
+            <div className="min-w-0">
+              <div className="text-[10px] text-[#6B5360] uppercase tracking-wide font-semibold">
+                Subtotal
+              </div>
+              <div className="text-base sm:text-2xl font-bold font-mono text-[#5E1B42] tabular-nums truncate">
                 {formatCurrency(tierResult.subtotal, currency)}
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-2 sm:gap-3 w-full lg:w-auto">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2.5 text-xs font-medium text-neutral-700 hover:text-neutral-900 bg-white border border-neutral-300 rounded hover:bg-neutral-50 transition-colors w-full sm:w-auto"
+              className="px-4 py-3 sm:py-2.5 text-xs font-semibold text-[#5E4A54] bg-white border border-[#D8C7B2] rounded-xl hover:bg-neutral-50 transition-colors shrink-0"
             >
               Cancel
             </button>
@@ -455,14 +449,14 @@ export const BulkOrderMatrixModal: React.FC<BulkOrderMatrixModalProps> = ({
               type="button"
               disabled={totalPieces === 0}
               onClick={handleConfirmOrder}
-              className={`px-6 py-2.5 text-xs font-semibold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-2 shadow-sm w-full sm:w-auto ${
+              className={`flex-1 lg:flex-none px-4 sm:px-6 py-3 sm:py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm ${
                 totalPieces === 0
                   ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
-                  : 'bg-[#D4AF37] hover:bg-[#ba9324] text-white active:scale-98'
+                  : 'bg-[#5E1B42] hover:bg-[#732252] text-white active:scale-98'
               }`}
             >
-              <PackageCheck className="w-4 h-4" />
-              Add {totalPieces} Sets to Bulk Cart (${tierResult.subtotal.toFixed(2)})
+              <PackageCheck className="w-4 h-4 text-[#F5D77F] shrink-0" />
+              Add {totalPieces} Suits to Cart
             </button>
           </div>
         </div>

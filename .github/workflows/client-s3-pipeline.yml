@@ -1,0 +1,47 @@
+name: Client Automated S3 + MongoDB Photo Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_bucket:
+        description: 'Target AWS S3 Bucket'
+        required: true
+        default: 'sajawat-wholesale-assets'
+      target_db:
+        description: 'Target MongoDB Database'
+        required: true
+        default: 'sajawat_wholesale'
+  schedule:
+    # Runs weekly every Sunday at 02:00 UTC to keep S3 & MongoDB wholesale catalog synced
+    - cron: '0 2 * * 0'
+
+jobs:
+  sync-client-photos:
+    name: Process Studio Photos -> AWS S3 WebP -> MongoDB Atlas
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python Imaging, AWS S3 & MongoDB Libraries
+        run: pip install boto3 pymongo Pillow requests python-dotenv
+
+      - name: Run Automated S3 + MongoDB Sync Script
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-1'
+          S3_BUCKET_NAME: ${{ inputs.target_bucket || 'sajawat-wholesale-assets' }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          MONGODB_DB_NAME: ${{ inputs.target_db || 'sajawat_wholesale' }}
+        run: |
+          if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$MONGODB_URI" ]; then
+            echo "⚠️ Please configure AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and MONGODB_URI in GitHub Repository Secrets."
+            exit 0
+          fi
+          python scripts/sync_sajawat_s3_mongodb.py

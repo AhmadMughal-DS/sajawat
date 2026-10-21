@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import {
   calculateMatrixTotalPieces,
   calculateTierPrice,
@@ -9,7 +10,7 @@ import {
   validateUploadFile,
   filterWholesaleProducts,
   formatCurrency,
-  PricingTier,
+  type PricingTier,
 } from './b2bLogic.ts';
 
 test('calculateMatrixTotalPieces correctly aggregates non-zero quantities', () => {
@@ -23,34 +24,34 @@ test('calculateMatrixTotalPieces correctly aggregates non-zero quantities', () =
 
 test('calculateTierPrice applies dynamic wholesale tiers and identifies next tier discount', () => {
   const tiers: PricingTier[] = [
-    { minQty: 10, maxQty: 24, pricePerUnit: 42.0 },
-    { minQty: 25, maxQty: 49, pricePerUnit: 36.0 },
-    { minQty: 50, pricePerUnit: 31.0 },
+    { minQty: 10, maxQty: 24, pricePerUnit: 3450 },
+    { minQty: 25, maxQty: 49, pricePerUnit: 3150 },
+    { minQty: 50, pricePerUnit: 2850 },
   ];
   const moq = 20;
 
   // Case 1: Under MOQ (15 pieces)
   const result1 = calculateTierPrice(15, tiers, moq);
   assert.equal(result1.totalQty, 15);
-  assert.equal(result1.unitPrice, 42.0);
-  assert.equal(result1.subtotal, 630.0);
+  assert.equal(result1.unitPrice, 3450);
+  assert.equal(result1.subtotal, 51750);
   assert.equal(result1.meetsMOQ, false);
   assert.equal(result1.moqDeficit, 5);
   assert.equal(result1.nextTier?.unitsNeeded, 10); // 25 - 15 = 10
-  assert.equal(result1.nextTier?.savingsPerUnit, 6.0); // 42 - 36
+  assert.equal(result1.nextTier?.savingsPerUnit, 300); // 3450 - 3150
 
   // Case 2: Above MOQ, qualifies for tier 2 (30 pieces)
   const result2 = calculateTierPrice(30, tiers, moq);
-  assert.equal(result2.unitPrice, 36.0);
-  assert.equal(result2.subtotal, 1080.0);
+  assert.equal(result2.unitPrice, 3150);
+  assert.equal(result2.subtotal, 94500);
   assert.equal(result2.meetsMOQ, true);
   assert.equal(result2.moqDeficit, 0);
   assert.equal(result2.nextTier?.unitsNeeded, 20); // 50 - 30 = 20
 
   // Case 3: Volume Tier 3 (100 pieces)
   const result3 = calculateTierPrice(100, tiers, moq);
-  assert.equal(result3.unitPrice, 31.0);
-  assert.equal(result3.subtotal, 3100.0);
+  assert.equal(result3.unitPrice, 2850);
+  assert.equal(result3.subtotal, 285000);
   assert.equal(result3.nextTier, null); // Highest tier reached
 });
 
@@ -105,9 +106,9 @@ test('filterWholesaleProducts accurately filters by SKU, category, and colorway'
   const dummyProducts = [
     {
       id: '1',
-      sku: 'SUT-W-2026-EMB01',
+      sku: 'SJW-W-2026-CHF01',
       title: 'Emerald Zari Silk 3-Piece Stitched Formal Suit',
-      collection: 'Royal Heritage',
+      collection: 'Sajawat Luxury Festive',
       category: 'WOMENS_STITCHED',
       suitType: '3-Piece Stitched Formal',
       colorways: [
@@ -118,9 +119,9 @@ test('filterWholesaleProducts accurately filters by SKU, category, and colorway'
     },
     {
       id: '2',
-      sku: 'SUT-K-2026-FEST02',
+      sku: 'SJW-K-2026-SHR01',
       title: 'Pastel Meadow Children Festive Kurta & Gharara Sets',
-      collection: 'Junior Couture',
+      collection: 'Sajawat Junior Couture',
       category: 'KIDS_STITCHED',
       suitType: 'Coordinated Girls Gharara',
       colorways: [
@@ -132,7 +133,7 @@ test('filterWholesaleProducts accurately filters by SKU, category, and colorway'
   ];
 
   // Search by SKU
-  const bySku = filterWholesaleProducts(dummyProducts, 'EMB01');
+  const bySku = filterWholesaleProducts(dummyProducts, 'CHF01');
   assert.equal(bySku.length, 1);
   assert.equal(bySku[0].id, '1');
 
@@ -144,7 +145,7 @@ test('filterWholesaleProducts accurately filters by SKU, category, and colorway'
   // Search by Category filter
   const byCategory = filterWholesaleProducts(dummyProducts, '', 'KIDS_STITCHED');
   assert.equal(byCategory.length, 1);
-  assert.equal(byCategory[0].sku, 'SUT-K-2026-FEST02');
+  assert.equal(byCategory[0].sku, 'SJW-K-2026-SHR01');
 
   // Search by Category keyword
   const byKeyword = filterWholesaleProducts(dummyProducts, 'women');
@@ -154,4 +155,24 @@ test('filterWholesaleProducts accurately filters by SKU, category, and colorway'
   // Unmatched query
   const unmatched = filterWholesaleProducts(dummyProducts, 'Denim Leather');
   assert.equal(unmatched.length, 0);
+});
+
+test('S3 & MongoDB wholesale catalog snapshot has 16 Women & Kids stitched products with non-clickable swatches', () => {
+  const catalogRaw = fs.readFileSync(new URL('../data/s3CatalogData.json', import.meta.url), 'utf8');
+  const catalog = JSON.parse(catalogRaw);
+
+  assert.equal(catalog.s3Bucket, 'sajawat-wholesale-assets');
+  assert.equal(catalog.mongoDatabase, 'sajawat_wholesale');
+  assert.equal(catalog.products.length, 16);
+
+  const womensCount = catalog.products.filter((p: any) => p.category === 'WOMENS_STITCHED').length;
+  const kidsCount = catalog.products.filter((p: any) => p.category === 'KIDS_STITCHED').length;
+  assert.equal(womensCount, 8);
+  assert.equal(kidsCount, 8);
+
+  for (const prod of catalog.products) {
+    assert.equal(prod.colorSwatchesClickable, false);
+    assert.ok(prod.catalogImage.includes('sajawat-wholesale-assets.s3.us-east-1.amazonaws.com/catalog/'));
+    assert.ok(prod.pricingTiers[0].pricePerUnit >= 1000, `Expected PKR wholesale rate >= 1000 for ${prod.sku}`);
+  }
 });

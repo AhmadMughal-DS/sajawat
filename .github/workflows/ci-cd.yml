@@ -1,0 +1,150 @@
+name: Sajawat® CI/CD Pipeline (Build, Test, S3 & Deploy)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+    inputs:
+      sync_s3_catalog:
+        description: 'Run AWS S3 + MongoDB Atlas Catalog Sync'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'sajawat-cicd-${{ github.ref }}'
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '22'
+  AWS_REGION: 'us-east-1'
+  S3_BUCKET_NAME: 'sajawat-wholesale-assets'
+  MONGODB_DB_NAME: 'sajawat_wholesale'
+
+jobs:
+  # ──────────────────────────────────────────────────────────────────────────
+  # JOB 1: TypeScript Typecheck, B2B Unit Tests, SEO Verification & Vite Build
+  # ──────────────────────────────────────────────────────────────────────────
+  quality-and-build:
+    name: Lint, Unit Tests & Production Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Sajawat® Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run TypeScript Strict Typecheck (Frontend + Express Server)
+        run: npm run lint
+
+      - name: Run B2B Wholesale & S3 Catalog Unit Tests
+        run: npm test
+
+      - name: Build Production Bundle (Vite)
+        run: npm run build
+
+      - name: Verify SEO Artifacts (robots.txt, sitemap.xml, index.html)
+        run: |
+          test -f dist/index.html
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          echo "✅ SEO & production build artifacts verified successfully."
+
+      - name: Upload Production Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sajawat-production-dist
+          path: dist/
+          retention-days: 14
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # JOB 2: Automated AWS S3 + MongoDB Atlas Catalog Pipeline (Optional / On-Demand)
+  # ──────────────────────────────────────────────────────────────────────────
+  s3-mongodb-sync:
+    name: Sync Studio Photos to AWS S3 & MongoDB Atlas
+    needs: quality-and-build
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.sync_s3_catalog == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install S3 & MongoDB Pipeline Dependencies
+        run: pip install boto3 pymongo Pillow requests python-dotenv
+
+      - name: Execute Sajawat® S3 + MongoDB Sync Pipeline
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ env.AWS_REGION }}
+          S3_BUCKET_NAME: ${{ env.S3_BUCKET_NAME }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          MONGODB_DB_NAME: ${{ env.MONGODB_DB_NAME }}
+        run: python scripts/sync_sajawat_s3_mongodb.py
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # JOB 3: Continuous Deployment (S3 Release Backup & Cloud Webhook)
+  # ──────────────────────────────────────────────────────────────────────────
+  deploy-production:
+    name: Deploy Production Build
+    needs: quality-and-build
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Production Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sajawat-production-dist
+          path: dist/
+
+      - name: Sync Production Static Assets to AWS S3 (if AWS secrets configured)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
+          S3_BUCKET_NAME: ${{ env.S3_BUCKET_NAME }}
+        run: |
+          if [ -n "$AWS_ACCESS_KEY_ID" ] && [ -n "$AWS_SECRET_ACCESS_KEY" ]; then
+            aws s3 sync dist/ "s3://${S3_BUCKET_NAME}/releases/latest/" --delete --cache-control "public, max-age=31536000"
+            echo "✅ Synced production build to s3://${S3_BUCKET_NAME}/releases/latest/"
+          else
+            echo "ℹ️ AWS secrets not set in GitHub Actions; skipping S3 release upload."
+          fi
+
+      - name: Trigger Cloud Server Deploy Hook (Render / Railway / VPS)
+        env:
+          DEPLOY_WEBHOOK_URL: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+        run: |
+          if [ -n "$DEPLOY_WEBHOOK_URL" ]; then
+            curl -fsSL -X POST "$DEPLOY_WEBHOOK_URL"
+            echo "✅ Triggered production deployment webhook."
+          else
+            echo "ℹ️ No DEPLOY_WEBHOOK_URL configured; build artifact ready."
+          fi

@@ -1,18 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Check,
-  X,
-  TrendingUp,
-  ShieldCheck,
-  Grid3X3,
-  Layers,
-  ArrowRight,
-  ExternalLink,
-  Sparkles,
-  Calculator,
-  Award,
-  Zap,
-} from 'lucide-react';
+import { Check, X, Sparkles, Calculator } from 'lucide-react';
 
 interface PehnavaaBenchmarkProps {
   onExploreCatalog: () => void;
@@ -21,134 +8,137 @@ interface PehnavaaBenchmarkProps {
 
 export const PehnavaaBenchmark: React.FC<PehnavaaBenchmarkProps> = ({
   onExploreCatalog,
-  onOpenMatrixWithSample,
 }) => {
-  // Margin calculator state
-  const [calculatorSets, setCalculatorSets] = useState(120);
-  const [retailResalePrice, setRetailResalePrice] = useState(85.0); // What boutique sells it for ($)
+  // Pakistani Rupee (PKR) Boutique Profit Simulator
+  const [calculatorSets, setCalculatorSets] = useState(48);
+  const [retailResalePricePkr, setRetailResalePricePkr] = useState(5800);
 
-  // Comparative Cost calculations
-  // Pehnavaa typical consumer retail / wholesale inquiry price per stitched 3pc: ~$52 - $58 USD
-  const pehnavaaUnitCost = 54.0;
-  // Sutura Tier 3 Mill-direct price: ~$32.50 USD
-  const suturaUnitCost = 32.5;
+  // Typical Pehnavaa single-piece retail/semi-wholesale price vs Sajawat Tier 3 wholesale rate
+  const pehnavaaUnitCostPkr = 4650;
+  const sajawatUnitCostPkr = 2850;
 
-  const pehnavaaTotalCost = calculatorSets * pehnavaaUnitCost;
-  const suturaTotalCost = calculatorSets * suturaUnitCost;
-  const totalBoutiqueRevenue = calculatorSets * retailResalePrice;
+  const pehnavaaTotalCost = calculatorSets * pehnavaaUnitCostPkr;
+  const sajawatTotalCost = calculatorSets * sajawatUnitCostPkr;
+  const totalBoutiqueRevenue = calculatorSets * retailResalePricePkr;
 
   const pehnavaaBoutiqueProfit = totalBoutiqueRevenue - pehnavaaTotalCost;
-  const suturaBoutiqueProfit = totalBoutiqueRevenue - suturaTotalCost;
-  const additionalProfitEarned = suturaBoutiqueProfit - pehnavaaBoutiqueProfit;
-  const marginPercentage = Number(((suturaBoutiqueProfit / totalBoutiqueRevenue) * 100).toFixed(1));
+  const sajawatBoutiqueProfit = totalBoutiqueRevenue - sajawatTotalCost;
+  const additionalProfitEarned = sajawatBoutiqueProfit - pehnavaaBoutiqueProfit;
+  const marginPercentage = Number(((sajawatBoutiqueProfit / totalBoutiqueRevenue) * 100).toFixed(1));
 
   const comparisonPillars = [
     {
-      pillar: 'Wholesale Pricing & Access Gating',
-      pehnavaa: 'Public consumer retail prices displayed; no gated access. Retailer margins are visible to consumers.',
-      sutura: 'Strictly gated B2B portal. Tax ID / Resale License required to view FOB Mill volume tier rates ($/set).',
-      advantage: 'Protects boutique retail markup and prevents price erosion.',
+      pillar: 'Pakistan Wholesale Pricing & Margin Defense',
+      pehnavaa:
+        'Public consumer retail prices (Rs. 2,599–10,499) shown to everyone; end-customers see the same prices as shopkeepers.',
+      sajawat:
+        'Dedicated Factory Wholesale Tiers (Rs. 1,320–4,190/suit) with 1-click Wholesale Gating so your boutique markup stays protected.',
+      advantage: 'Earn Rs. 1,200 to Rs. 3,200 clear profit on every stitched suit.',
     },
     {
-      pillar: 'Bulk Ordering Workflow',
-      pehnavaa: 'Consumer 1-by-1 product pages or manual back-and-forth WhatsApp chat negotiation.',
-      sutura: 'High-density Bulk Order Matrix. Enter 100+ sets across S, M, L, XL, XXL and 4 colorways simultaneously.',
-      advantage: 'Reduces wholesale order creation time from hours of chat to under 30 seconds.',
+      pillar: 'Bulk Set & Size Curve Ordering',
+      pehnavaa:
+        'Consumer 1-by-1 add-to-cart or slow WhatsApp voice-note negotiation for bundles.',
+      sajawat:
+        'Instant Bulk Order Matrix & 1-Click Set Bundles across S, M, L, XL and Kids 2Y–12Y.',
+      advantage: 'Build a 48-suit multi-design wholesale PO in under 30 seconds.',
     },
     {
-      pillar: 'Volume Pricing Tiers & MOQs',
-      pehnavaa: 'Fixed consumer price per piece. Bulk discount inquiries are negotiated informally via chat.',
-      sutura: 'Automated dynamic volume tiers (e.g. 24–49: $44.50, 50–99: $38.00, 100+: $32.50) with live upsell cues.',
-      advantage: 'Predictable contract pricing with transparent factory cost sheets.',
+      pillar: 'Non-Clickable Full Set Colorways & Auto S3 Pipeline',
+      pehnavaa:
+        'Inconsistent consumer product variants without wholesale bundle clarity.',
+      sajawat:
+        'Pre-balanced non-clickable bundle colorways with high-res studio photos served from AWS S3 (`sajawat-wholesale-assets`) & MongoDB.',
+      advantage: 'Guaranteed color assortment in every gaddi/bundle with zero dead variant links.',
     },
     {
-      pillar: 'Retailer Marketing Asset Pipeline',
-      pehnavaa: 'No downloadable asset kits. Retailers must capture screenshots or shoot their own lookbooks.',
-      sutura: 'Automated 1-click ZIP Asset Kits containing 4K studio lookbooks, 1:1 IG squares, 9:16 stories, and clean white cutouts.',
-      advantage: 'Boutiques can launch presales on Shopify & Instagram weeks before air freight delivery.',
-    },
-    {
-      pillar: 'Export Logistics & Master Packaging',
-      pehnavaa: 'Standard parcel courier or informal forwarding with manual freight quotes.',
-      sutura: 'Automated export carton calculation, gross cargo kg, CBM volume, and FOB/CIF/DDP Incoterms with live tracking.',
-      advantage: 'Avoids port customs surprises and reduces air/ocean freight landed costs.',
-    },
-    {
-      pillar: 'Technical Architecture & Speed',
-      pehnavaa: 'Standard consumer CMS (Shopify/WooCommerce) with standard plugins.',
-      sutura: 'Next.js App Router, FastAPI asynchronous core, Pillow multi-scale WebP engine, and Docker microservices.',
-      advantage: 'Instant response times with zero lag during high-volume wholesale catalog lookups.',
+      pillar: 'All-Pakistan Bilti & Cargo Integration',
+      pehnavaa:
+        'Standard single-parcel retail courier charges.',
+      sajawat:
+        'Master Carton Bilti via TCS Overland, Daewoo FastEx, Leopard Cargo & Truck Adda to Lahore, Karachi, Faisalabad, Rawalpindi & Multan.',
+      advantage: 'Lowest per-suit freight cost in Pakistan (24–72 hour delivery).',
     },
   ];
 
   return (
     <div className="space-y-12 pb-16">
-      {/* Header Banner */}
-      <div className="bg-[#FAF9F5] border-b border-[#E8E6DF] py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-[#97731B] uppercase">
-            <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            B2B Architectural & Commercial Benchmark
+      <div className="bg-gradient-to-br from-white via-[#FAF8F4] to-[#F2ECE1] text-stone-900 border-b border-stone-200 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-[#5E1B42] uppercase">
+            <Sparkles className="w-4 h-4 text-[#C59B27]" />
+            Pakistan Wholesale Benchmark Audit (2026)
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1E1E]">
-            Comparative Benchmark: Sutura B2B vs. www.pehnavaa.com
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900">
+            Why Pakistani Boutiques Choose Sajawat® Over www.pehnavaa.com
           </h2>
-          <p className="text-sm text-[#555555] max-w-3xl leading-relaxed">
-            While <strong>Pehnavaa (pehnavaa.com)</strong> is an established consumer destination for stitched ethnic wear (including 3-piece chiffon suits, Nayab velvet, and festive girlswear), bulk boutique buyers and multi-door retailers require a purpose-built B2B manufacturing engine. Below is a comprehensive feature, workflow, and financial comparative analysis.
+          <p className="text-sm text-stone-600 max-w-3xl leading-relaxed">
+            Compare <strong>Sajawat® (Stitched Women &amp; Kids Wholesale)</strong> against consumer-focused websites like <strong>pehnavaa.com</strong> across factory pricing, bundle ordering, Bilti logistics, and AWS S3 + MongoDB cloud speed.
           </p>
         </div>
       </div>
 
-      {/* Side-by-Side Comparison Matrix */}
+      {/* Side-by-Side Comparison — stacked cards on mobile, table on md+ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="font-serif text-2xl font-bold text-[#1E1E1E]">
-              Feature-by-Feature Operational Comparison
-            </h3>
-            <p className="text-xs text-neutral-500 mt-0.5">
-              Analyzing wholesale functionality, boutique margin defense, and technical architecture.
-            </p>
-          </div>
-          <span className="text-xs font-mono text-neutral-500 hidden sm:inline">
-            Benchmark Audit Q4 2026
-          </span>
+        <div className="md:hidden space-y-4">
+          {comparisonPillars.map((row, idx) => (
+            <div key={idx} className="bg-white rounded-2xl border border-[#E6D6C1] overflow-hidden shadow-2xs">
+              <div className="px-4 py-3 bg-[#FAF3E8] border-b border-[#E5D5C0] font-bold text-sm text-[#221A1F]">
+                {row.pillar}
+              </div>
+              <div className="p-4 space-y-3 text-xs leading-relaxed">
+                <div className="flex items-start gap-2 text-[#5E4A54]">
+                  <X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#7A5B6B] mb-0.5">pehnavaa.com</div>
+                    {row.pehnavaa}
+                  </div>
+                </div>
+                <div className="flex items-start gap-2 text-[#221A1F] bg-[#FDF9FB] border border-[#F3D1E2] rounded-xl p-3">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#5E1B42]">Sajawat® Wholesale</div>
+                    <div className="font-semibold">{row.sajawat}</div>
+                    <div className="text-[11px] text-[#5E1B42] font-bold">→ {row.advantage}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="bg-white rounded-2xl border border-[#E8E8E8] overflow-hidden shadow-2xs">
+        <div className="hidden md:block bg-white rounded-2xl border border-[#E6D6C1] overflow-hidden shadow-2xs">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="bg-[#FAF9F6] border-b border-[#EAE6DD] text-[#333333]">
+                <tr className="bg-[#FAF3E8] border-b border-[#E5D5C0] text-[#221A1F]">
                   <th className="py-3.5 px-5 font-bold uppercase tracking-wider w-1/4">
-                    Capability / Dimension
+                    Wholesale Dimension
                   </th>
-                  <th className="py-3.5 px-5 font-bold uppercase tracking-wider w-1/3 text-neutral-500">
-                    www.pehnavaa.com (Consumer / Traditional)
+                  <th className="py-3.5 px-5 font-bold uppercase tracking-wider w-1/3 text-[#7A5B6B]">
+                    www.pehnavaa.com (Retail Store)
                   </th>
-                  <th className="py-3.5 px-5 font-bold uppercase tracking-wider w-5/12 text-[#97731B] bg-[#FBF8EE]">
-                    Sutura B2B Wholesale Atelier
+                  <th className="py-3.5 px-5 font-bold uppercase tracking-wider w-5/12 text-[#5E1B42] bg-[#FDF4F8]">
+                    Sajawat® Wholesale Pakistan (100% Level-Up)
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#EAEAEA]">
+              <tbody className="divide-y divide-[#EFE6D8]">
                 {comparisonPillars.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-neutral-50/50 transition-colors">
-                    <td className="py-4 px-5 font-bold text-[#1E1E1E] align-top">
-                      {row.pillar}
-                    </td>
-                    <td className="py-4 px-5 text-neutral-600 align-top leading-relaxed">
+                  <tr key={idx} className="hover:bg-[#FDFBF7] transition-colors">
+                    <td className="py-4 px-5 font-bold text-[#221A1F] align-top">{row.pillar}</td>
+                    <td className="py-4 px-5 text-[#5E4A54] align-top leading-relaxed">
                       <div className="flex items-start gap-2">
                         <X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                         <span>{row.pehnavaa}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-5 bg-[#FDFBF7] align-top space-y-1.5 leading-relaxed">
-                      <div className="flex items-start gap-2 text-[#1E1E1E] font-medium">
+                    <td className="py-4 px-5 bg-[#FDF9FB] align-top space-y-1.5 leading-relaxed">
+                      <div className="flex items-start gap-2 text-[#221A1F] font-semibold">
                         <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{row.sutura}</span>
+                        <span>{row.sajawat}</span>
                       </div>
-                      <div className="text-[11px] text-[#97731B] font-semibold pl-6">
+                      <div className="text-[11px] text-[#5E1B42] font-bold pl-6">
                         → {row.advantage}
                       </div>
                     </td>
@@ -160,193 +150,97 @@ export const PehnavaaBenchmark: React.FC<PehnavaaBenchmarkProps> = ({
         </div>
       </section>
 
-      {/* Interactive Margin & Profitability ROI Simulator */}
+      {/* Interactive PKR Boutique Profit Calculator */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#1E1E1E] text-white rounded-2xl p-8 sm:p-10 shadow-xl space-y-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-700 pb-6">
+        <div className="bg-gradient-to-br from-[#2F0B20] to-[#471231] text-white rounded-2xl p-5 sm:p-10 shadow-xl space-y-8 border border-[#732252]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/15 pb-6">
             <div className="space-y-1">
-              <span className="text-xs font-semibold tracking-widest text-[#D4AF37] uppercase flex items-center gap-1.5">
-                <Calculator className="w-4 h-4" />
-                B2B Retailer Financial Simulator
+              <span className="text-xs font-bold tracking-widest text-[#F5D77F] uppercase flex items-center gap-1.5">
+                <Calculator className="w-4 h-4 shrink-0" />
+                Boutique Profit Calculator (PKR)
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-semibold">
-                Boutique Profitability: Sutura Factory Direct vs. Pehnavaa Sourcing
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold">
+                Calculate Your Shop’s Extra Profit with Sajawat® Factory Rates
               </h3>
-              <p className="text-xs text-neutral-300">
-                Simulate your wholesale consignment economics based on real FOB Mill price tier breaks.
-              </p>
             </div>
 
-            <div className="bg-[#2B2B2E] p-3 rounded-xl border border-neutral-700 text-right">
-              <div className="text-[11px] text-neutral-400">Net Additional Margin Gain:</div>
-              <div className="text-2xl font-bold font-mono text-[#D4AF37] tabular-nums">
-                +${additionalProfitEarned.toLocaleString()} USD
+            <div className="bg-black/30 p-3.5 rounded-xl border border-[#F5D77F]/40 md:text-right shrink-0">
+              <div className="text-[11px] text-[#EAD2DF]">Extra Boutique Profit Earned:</div>
+              <div className="text-xl sm:text-2xl font-bold font-mono text-[#F5D77F] tabular-nums">
+                +Rs. {additionalProfitEarned.toLocaleString()}
               </div>
             </div>
           </div>
 
-          {/* Calculator Controls */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <div>
-                <div className="flex justify-between text-xs mb-2">
-                  <span className="text-neutral-300 font-medium">Bulk Order Consignment Size:</span>
-                  <span className="font-mono font-bold text-[#D4AF37] text-sm tabular-nums">
-                    {calculatorSets} Stitched Sets
+                <div className="flex flex-wrap justify-between gap-x-3 gap-y-1 text-xs mb-2">
+                  <span className="text-[#EAD2DF] font-medium">Wholesale Order Quantity:</span>
+                  <span className="font-mono font-bold text-[#F5D77F] text-sm tabular-nums">
+                    {calculatorSets} Suits
                   </span>
                 </div>
                 <input
                   type="range"
-                  min="24"
-                  max="500"
+                  min="12"
+                  max="240"
                   step="12"
                   value={calculatorSets}
+                  aria-label="Wholesale order quantity"
                   onChange={(e) => setCalculatorSets(parseInt(e.target.value, 10))}
-                  className="w-full accent-[#D4AF37] cursor-pointer"
+                  className="w-full accent-[#F5D77F] cursor-pointer"
                 />
-                <div className="flex justify-between text-[11px] text-neutral-500 font-mono mt-1">
-                  <span>MOQ (24 Sets)</span>
-                  <span>100 Sets (Tier 3)</span>
-                  <span>500 Sets (Container)</span>
-                </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-xs mb-2">
-                  <span className="text-neutral-300 font-medium">Boutique Retail Selling Price:</span>
-                  <span className="font-mono font-bold text-[#D4AF37] text-sm tabular-nums">
-                    ${retailResalePrice.toFixed(2)} / Set
+                <div className="flex flex-wrap justify-between gap-x-3 gap-y-1 text-xs mb-2">
+                  <span className="text-[#EAD2DF] font-medium">Your Selling Price per Suit:</span>
+                  <span className="font-mono font-bold text-[#F5D77F] text-sm tabular-nums">
+                    Rs. {retailResalePricePkr.toLocaleString()}
                   </span>
                 </div>
                 <input
                   type="range"
-                  min="55"
-                  max="140"
-                  step="5"
-                  value={retailResalePrice}
-                  onChange={(e) => setRetailResalePrice(parseFloat(e.target.value))}
-                  className="w-full accent-[#D4AF37] cursor-pointer"
+                  min="3800"
+                  max="9500"
+                  step="200"
+                  value={retailResalePricePkr}
+                  aria-label="Boutique selling price per suit"
+                  onChange={(e) => setRetailResalePricePkr(parseInt(e.target.value, 10))}
+                  className="w-full accent-[#F5D77F] cursor-pointer"
                 />
-                <div className="flex justify-between text-[11px] text-neutral-500 font-mono mt-1">
-                  <span>$55 (Everyday Pret)</span>
-                  <span>$85 (Luxury Lawn/Chiffon)</span>
-                  <span>$140 (Festive Velvet)</span>
-                </div>
               </div>
             </div>
 
-            {/* Financial Results Breakdown Card */}
-            <div className="bg-[#2A2A2E] rounded-xl p-6 border border-neutral-700 space-y-4 text-xs">
-              <div className="text-sm font-semibold text-white border-b border-neutral-700 pb-2">
-                Consignment Cost & Net Profit Comparison ({calculatorSets} Sets):
-              </div>
-
-              <div className="space-y-3 font-mono">
-                <div className="flex justify-between text-neutral-400">
-                  <span>Sourcing via Pehnavaa Wholesale/Retail ($54/set):</span>
-                  <span className="text-neutral-300">${pehnavaaTotalCost.toLocaleString()}</span>
+            <div className="bg-black/30 rounded-xl p-4 sm:p-6 border border-white/15 space-y-3.5 text-xs">
+              <div className="space-y-2.5">
+                <div className="flex justify-between gap-3 text-[#EAD2DF]">
+                  <span>Cost via Retail (Rs. 4,650/suit)</span>
+                  <span className="font-mono tabular-nums whitespace-nowrap">Rs. {pehnavaaTotalCost.toLocaleString()}</span>
                 </div>
-
-                <div className="flex justify-between text-emerald-400 font-bold">
-                  <span>Sourcing via Sutura Factory Direct ($32.50/set):</span>
-                  <span>${suturaTotalCost.toLocaleString()}</span>
+                <div className="flex justify-between gap-3 text-emerald-300 font-bold">
+                  <span>Cost via Sajawat® (Rs. 2,850/suit)</span>
+                  <span className="font-mono tabular-nums whitespace-nowrap">Rs. {sajawatTotalCost.toLocaleString()}</span>
                 </div>
-
-                <div className="h-px bg-neutral-700" />
-
-                <div className="flex justify-between text-neutral-300">
-                  <span>Gross Retail Revenue at Boutique:</span>
-                  <span className="font-bold text-white">${totalBoutiqueRevenue.toLocaleString()}</span>
+                <div className="h-px bg-white/15" />
+                <div className="flex justify-between gap-3 text-white">
+                  <span>Total Sales Revenue</span>
+                  <span className="font-mono font-bold tabular-nums whitespace-nowrap">Rs. {totalBoutiqueRevenue.toLocaleString()}</span>
                 </div>
-
-                <div className="flex justify-between text-neutral-400">
-                  <span>Pehnavaa Net Profit:</span>
-                  <span>${pehnavaaBoutiqueProfit.toLocaleString()}</span>
-                </div>
-
-                <div className="flex justify-between text-[#D4AF37] font-bold text-sm">
-                  <span>Sutura Net Profit ({marginPercentage}% Margin):</span>
-                  <span>${suturaBoutiqueProfit.toLocaleString()}</span>
+                <div className="flex justify-between gap-3 text-[#F5D77F] font-bold text-sm">
+                  <span>Net Profit ({marginPercentage}% margin)</span>
+                  <span className="font-mono tabular-nums whitespace-nowrap">Rs. {sajawatBoutiqueProfit.toLocaleString()}</span>
                 </div>
               </div>
 
-              <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={onExploreCatalog}
-                  className="w-full py-2.5 text-xs font-semibold uppercase tracking-wider bg-[#D4AF37] hover:bg-[#ba9324] text-[#1E1E1E] rounded transition-colors"
-                >
-                  Source Comparable Stitched Lines at Factory Direct Rates
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stitched Product Line Equivalence Showcase */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div>
-          <h3 className="font-serif text-2xl font-bold text-[#1E1E1E]">
-            Stitched Collections: Pehnavaa Equivalents in Sutura B2B
-          </h3>
-          <p className="text-xs text-neutral-500 mt-0.5">
-            Compare Sutura’s manufacturing specs against Pehnavaa’s top-selling stitched collections.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-5 rounded-xl border border-[#EAEAEA] shadow-2xs space-y-3">
-            <span className="text-[10px] uppercase tracking-wide font-mono text-neutral-500">
-              Pehnavaa Category 01
-            </span>
-            <h4 className="font-serif text-base font-bold text-[#1E1E1E]">
-              Chiffon Cutwork & Embroidered 3-Piece Suits
-            </h4>
-            <p className="text-xs text-neutral-600 leading-relaxed">
-              Pehnavaa’s popular chiffon collection with delicate neckline cutwork and flared trousers.
-            </p>
-            <div className="p-3 bg-[#FAF9F5] border border-[#E8E4D8] rounded-lg text-xs space-y-1">
-              <div className="font-semibold text-[#1E1E1E]">Sutura Factory Spec:</div>
-              <div className="text-neutral-600">
-                80 GSM Pure Raw Silk / Chiffon with 14 SPI Schiffli Cutwork neckline and dual-needle bound trousers. MOQ: 24 Sets.
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-[#EAEAEA] shadow-2xs space-y-3">
-            <span className="text-[10px] uppercase tracking-wide font-mono text-neutral-500">
-              Pehnavaa Category 02
-            </span>
-            <h4 className="font-serif text-base font-bold text-[#1E1E1E]">
-              Nayab Velvet & Luxury Pret Ensembles
-            </h4>
-            <p className="text-xs text-neutral-600 leading-relaxed">
-              Heavily embellished micro-velvet winter formal wear with zari threadwork and pure organza shawls.
-            </p>
-            <div className="p-3 bg-[#FAF9F5] border border-[#E8E4D8] rounded-lg text-xs space-y-1">
-              <div className="font-semibold text-[#1E1E1E]">Sutura Factory Spec:</div>
-              <div className="text-neutral-600">
-                Grade-A 9000 Micro-velvet, industrial Tajima zari needles, anti-shed pile, and pre-shrunk organza insets. MOQ: 20 Sets.
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-5 rounded-xl border border-[#EAEAEA] shadow-2xs space-y-3">
-            <span className="text-[10px] uppercase tracking-wide font-mono text-neutral-500">
-              Pehnavaa Category 03
-            </span>
-            <h4 className="font-serif text-base font-bold text-[#1E1E1E]">
-              Kids Festive Fancy Chiffon & Gharara Sets
-            </h4>
-            <p className="text-xs text-neutral-600 leading-relaxed">
-              Girls’ festive partywear dresses, coordinated ghararas, and boys’ jacquard waistcoats.
-            </p>
-            <div className="p-3 bg-[#FAF9F5] border border-[#E8E4D8] rounded-lg text-xs space-y-1">
-              <div className="font-semibold text-[#1E1E1E]">Sutura Factory Spec:</div>
-              <div className="text-neutral-600">
-                100% skin-safe OEKO-TEX certified cotton voile lining (zero scratch), soft elasticated waists, and durable resham motifs. MOQ: 36 Sets.
-              </div>
+              <button
+                type="button"
+                onClick={onExploreCatalog}
+                className="w-full py-3 text-xs font-bold uppercase tracking-wider bg-[#F5D77F] hover:bg-[#D4AF37] text-[#221A1F] rounded-xl transition-colors"
+              >
+                Order Wholesale Bundles Now
+              </button>
             </div>
           </div>
         </div>

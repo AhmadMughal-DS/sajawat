@@ -1,0 +1,21 @@
+{
+  "name": "Sajawat® — Stitched Women & Kids Wholesale Pakistan",
+  "short_name": "Sajawat Wholesale",
+  "description": "Pakistan's #1 Factory-Direct B2B Wholesale Platform for Women's Stitched Suits & Kids' Festive Clothing. Bulk Set & Matrix Ordering in Karachi, Lahore, Faisalabad & Rawalpindi.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#5E1B42",
+  "icons": [
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
