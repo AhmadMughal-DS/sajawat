@@ -78,13 +78,13 @@ export const GatedHomepage: React.FC<GatedHomepageProps> = ({
                 </button>
 
                 <a
-                  href="https://wa.me/923008472910?text=Assalam-o-Alaikum%20Sajawat%20Wholesale%20Team%2C%20send%20latest%20Women%20and%20Kids%20stitched%20wholesale%20rate%20list."
+                  href="https://wa.me/923476128734?text=Assalam-o-Alaikum%20Sajawat%20Wholesale%20Team%2C%20send%20latest%20Women%20and%20Kids%20stitched%20wholesale%20rate%20list."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-3.5 text-xs font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl transition-colors flex items-center justify-center gap-1.5"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-600" />
-                  WhatsApp Rate List
+                  WhatsApp: +92 347 6128734
                 </a>
               </div>
 

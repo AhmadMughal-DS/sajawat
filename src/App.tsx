@@ -445,15 +445,15 @@ export default function App() {
 
       {/* Pakistani WhatsApp Floating Wholesale Inquiry Button */}
       <a
-        href="https://wa.me/923008472910?text=Assalam-o-Alaikum%20Sajawat%20Wholesale%20Pakistan%2C%20I%20want%20to%20order%20Women%20and%20Kids%20stitched%20wholesale%20bundles."
+        href="https://wa.me/923476128734?text=Assalam-o-Alaikum%20Sajawat%20Wholesale%20Pakistan%2C%20I%20want%20to%20order%20Women%20and%20Kids%20stitched%20wholesale%20bundles."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white h-12 w-12 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 rounded-full shadow-lg flex items-center justify-center gap-2 text-xs font-bold transition-all hover:scale-105 active:scale-95 border border-emerald-300"
-        title="Chat with Sajawat® Wholesale Desk on WhatsApp"
-        aria-label="Chat with Sajawat Wholesale Desk on WhatsApp"
+        title="Chat with Sajawat® Wholesale Desk on WhatsApp (+92 347 6128734)"
+        aria-label="Chat with Sajawat Wholesale Desk on WhatsApp (+92 347 6128734)"
       >
         <MessageCircle className="w-5 h-5 sm:w-4 sm:h-4 fill-current" />
-        <span className="hidden sm:inline">WhatsApp Wholesale Desk</span>
+        <span className="hidden sm:inline">WhatsApp: +92 347 6128734</span>
       </a>
 
       {/* Main Content */}
@@ -677,6 +677,15 @@ export default function App() {
               <div className="text-[11px] text-[#F5D77F] font-semibold">
                 14 SPI Lockstitch · 9000 Micro-Velvet · Pure Crinkle Chiffon
               </div>
+              <a
+                href="https://wa.me/923476128734"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-emerald-400 hover:underline"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>WhatsApp: +92 347 6128734</span>
+              </a>
             </div>
 
             <div className="space-y-2">

@@ -116,7 +116,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       `Bilti Method: *${incoterm}*`,
       `Total Amount: *Rs. ${grandTotal.toLocaleString()} PKR*`,
     ];
-    return `https://wa.me/923008472910?text=${encodeURIComponent(lines.join('\n'))}`;
+    return `https://wa.me/923476128734?text=${encodeURIComponent(lines.join('\n'))}`;
   };
 
   return (

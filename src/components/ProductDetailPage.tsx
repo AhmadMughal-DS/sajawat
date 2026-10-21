@@ -243,7 +243,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
       .join(', ');
 
     const text = `Assalam-o-Alaikum Sajawat® Wholesale Desk,\nI want to order:\n• Product: *${product.title}*\n• SKU: *${product.sku}*\n• Selected Colors: ${colorBreakdown || selectedColor?.name}\n• Total Quantity: *${totalPieces} Suits*\n• Wholesale Rate: *Rs. ${tierResult.unitPrice.toLocaleString()}/suit*\n• Total Amount: *Rs. ${tierResult.subtotal.toLocaleString()} PKR*`;
-    return `https://wa.me/923008472910?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/923476128734?text=${encodeURIComponent(text)}`;
   }, [product, colorSubtotals, selectedColor, totalPieces, tierResult]);
 
   return (
