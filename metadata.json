@@ -1,0 +1,8 @@
+{
+  "name": "Sutura B2B Wholesale Atelier",
+  "description": "High-performance B2B wholesale platform for women's and children's stitched clothing with bulk matrix ordering, gated wholesale pricing, and automated catalog pipeline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

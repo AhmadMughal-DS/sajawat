@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-gold-50: #fbf8ee;
+  --color-gold-100: #f5eed3;
+  --color-gold-200: #ebdba8;
+  --color-gold-300: #dfc377;
+  --color-gold-400: #d4af37;
+  --color-gold-500: #ba9324;
+  --color-gold-600: #97731b;
+  --color-gold-700: #745418;
+  --color-rosegold: #b76e79;
+  --color-ivory: #fafafa;
+  --color-charcoal: #333333;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fafafa;
+  color: #333333;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .font-serif-heading {
+  font-family: var(--font-serif);
+}
+
+/* Custom scrollbars for high density bulk matrix order tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ba9324;
+}
