@@ -435,7 +435,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 <div className="bg-stone-50 border border-stone-200 rounded-2xl p-5 space-y-3">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-stone-500">
-                      Market / Pehnavaa Retail Price:{' '}
+                      Market Retail Price:{' '}
                       <strong className="line-through">{formatCurrency(retailBenchmark, currency)}</strong>
                     </span>
                     <span className="font-bold text-emerald-700">Save up to {savingsPercent}%</span>

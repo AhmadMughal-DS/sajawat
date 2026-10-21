@@ -400,7 +400,6 @@ Sitemap: ${SITE_URL}/sitemap.xml
       { loc: `${SITE_URL}/?category=WOMENS_STITCHED`, priority: '0.9', changefreq: 'daily' },
       { loc: `${SITE_URL}/?category=KIDS_STITCHED`, priority: '0.9', changefreq: 'daily' },
       { loc: `${SITE_URL}/?tab=manufacturing`, priority: '0.8', changefreq: 'weekly' },
-      { loc: `${SITE_URL}/?tab=benchmark`, priority: '0.8', changefreq: 'weekly' },
       ...memoryProducts.map((p) => ({
         loc: `${SITE_URL}/?sku=${encodeURIComponent(p.sku)}`,
         priority: '0.85',

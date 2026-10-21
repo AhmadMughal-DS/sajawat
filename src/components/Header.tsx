@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { UserRole } from '../types/index.ts';
-import { ShoppingBag, UserCheck, Lock, KeyRound, Menu, X, Sparkles, Code2 } from 'lucide-react';
+import { ShoppingBag, UserCheck, Lock, KeyRound, Menu, X, Code2 } from 'lucide-react';
 
 interface HeaderProps {
   currentRole: UserRole;
@@ -20,7 +20,6 @@ interface HeaderProps {
 const NAV_ITEMS: { id: string; label: string; short: string }[] = [
   { id: 'catalog', label: 'Wholesale Catalog', short: 'Catalog' },
   { id: 'manufacturing', label: 'Factory & Bilti', short: 'Factory & Bilti' },
-  { id: 'benchmark', label: 'Sajawat vs Pehnavaa', short: 'vs Pehnavaa' },
   { id: 'portal', label: 'Buyer Portal', short: 'Buyer Portal' },
 ];
 
@@ -123,7 +122,6 @@ export const Header: React.FC<HeaderProps> = ({
                     active ? 'text-[#5E1B42] font-bold bg-[#FDF4F8]' : 'hover:text-[#5E1B42] hover:bg-stone-100/80'
                   }`}
                 >
-                  {item.id === 'benchmark' && <Sparkles className="w-3.5 h-3.5 text-[#C59B27]" />}
                   {item.id === 'portal' && currentRole === 'GUEST' && <Lock className="w-3.5 h-3.5 text-[#8B3264]" />}
                   {item.label}
                 </button>

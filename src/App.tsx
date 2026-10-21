@@ -32,7 +32,6 @@ import { FactoryAdminRoute } from './components/FactoryAdminRoute.tsx';
 import { CartDrawer } from './components/CartDrawer.tsx';
 import { ArchitectureModal } from './components/ArchitectureModal.tsx';
 import { ManufacturingMill } from './components/ManufacturingMill.tsx';
-import { PehnavaaBenchmark } from './components/PehnavaaBenchmark.tsx';
 import {
   Lock,
   Sparkles,
@@ -47,7 +46,7 @@ export default function App() {
   // Default to RETAILER so wholesale rates & matrix ordering are immediately usable,
   // while keeping the Guest Gate switcher in the header for B2B gating demos.
   const [currentRole, setCurrentRole] = useState<UserRole>('RETAILER');
-  const [activeTab, setActiveTab] = useState<'catalog' | 'manufacturing' | 'portal' | 'benchmark'>(
+  const [activeTab, setActiveTab] = useState<'catalog' | 'manufacturing' | 'portal'>(
     'catalog'
   );
   const [catalogCategory, setCatalogCategory] = useState<'ALL' | 'WOMENS_STITCHED' | 'KIDS_STITCHED'>(
@@ -120,8 +119,6 @@ export default function App() {
           : catalogCategory === 'KIDS_STITCHED'
           ? "Kids' Stitched Festive Wholesale Clothes Pakistan (Sharara, Velvet) | Sajawat®"
           : "Sajawat® Wholesale Pakistan — Women's & Kids' Stitched Clothes Factory Direct (2026)";
-    } else if (activeTab === 'benchmark') {
-      document.title = 'Sajawat® Wholesale vs. www.pehnavaa.com — Pakistan Boutique Margin Comparison';
     } else if (activeTab === 'manufacturing') {
       document.title = 'Stitching Mill & All-Pakistan Bilti Dispatch — Sajawat® Wholesale';
     } else if (activeTab === 'portal') {
@@ -542,10 +539,10 @@ export default function App() {
 
                   <div className="bg-white p-6 rounded-2xl border border-stone-200/90 space-y-2 shadow-2xs">
                     <h3 className="font-serif text-base font-bold text-stone-900">
-                      3. How does Sajawat® compare to www.pehnavaa.com on price and quality?
+                      3. What profit margins do boutiques earn on Sajawat® wholesale suits?
                     </h3>
                     <p className="text-xs text-stone-600 leading-relaxed">
-                      While <strong>pehnavaa.com</strong> is a consumer retail storefront selling individual suits at Rs. 2,599–10,499, <strong>Sajawat®</strong> is a dedicated factory-direct B2B wholesale platform offering the same luxury fabric grades (9000 Micro-Velvet, Pure Crinkle Chiffon, Raw Silk Shararas, Dhanak Palachi Shawls) at <strong>35%–42% lower wholesale tier rates</strong>.
+                      Because <strong>Sajawat®</strong> is a dedicated factory-direct B2B wholesale platform, our luxury fabric grades (9000 Micro-Velvet, Pure Crinkle Chiffon, Raw Silk Shararas, Dhanak Palachi Shawls) are priced at <strong>35%–42% below market retail prices</strong>, allowing boutique owners to earn Rs. 1,200–3,500 clear profit per suit.
                     </p>
                   </div>
 
@@ -610,15 +607,6 @@ export default function App() {
               />
             )}
           </section>
-        )}
-
-        {activeTab === 'benchmark' && (
-          <PehnavaaBenchmark
-            onExploreCatalog={() => setActiveTab('catalog')}
-            onOpenMatrixWithSample={() => {
-              setActiveMatrixProduct(products[0]);
-            }}
-          />
         )}
       </main>
 

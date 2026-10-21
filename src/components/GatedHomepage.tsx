@@ -234,7 +234,7 @@ export const GatedHomepage: React.FC<GatedHomepageProps> = ({
               <BadgePercent className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-stone-900 font-serif">
-              35%–42% Cheaper Than www.pehnavaa.com
+              35%–42% Below Market Retail Prices
             </h3>
             <p className="text-xs text-stone-600 leading-relaxed">
               Direct mill wholesale rates starting at <strong>Rs. 1,320 (Kids)</strong> and <strong>Rs. 2,100 (Women)</strong> so boutique owners earn Rs. 1,200–3,500 clear profit per suit.
