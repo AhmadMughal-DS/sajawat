@@ -443,17 +443,18 @@ export default function App() {
         </div>
       )}
 
-      {/* Pakistani WhatsApp Floating Wholesale Inquiry Button */}
+      {/* Pakistani WhatsApp Floating Button (Logo Only) */}
       <a
         href="https://wa.me/923476128734?text=Assalam-o-Alaikum%20Sajawat%20Wholesale%20Pakistan%2C%20I%20want%20to%20order%20Women%20and%20Kids%20stitched%20wholesale%20bundles."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white h-12 w-12 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 rounded-full shadow-lg flex items-center justify-center gap-2 text-xs font-bold transition-all hover:scale-105 active:scale-95 border border-emerald-300"
-        title="Chat with Sajawat® Wholesale Desk on WhatsApp (+92 347 6128734)"
-        aria-label="Chat with Sajawat Wholesale Desk on WhatsApp (+92 347 6128734)"
+        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white h-14 w-14 rounded-full shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 border-2 border-white"
+        title="WhatsApp"
+        aria-label="WhatsApp"
       >
-        <MessageCircle className="w-5 h-5 sm:w-4 sm:h-4 fill-current" />
-        <span className="hidden sm:inline">WhatsApp: +92 347 6128734</span>
+        <svg viewBox="0 0 32 32" className="w-7 h-7 fill-current" aria-hidden="true">
+          <path d="M16.004 3.2c-7.068 0-12.8 5.732-12.8 12.8 0 2.256.59 4.46 1.71 6.404L3.2 28.8l6.564-1.692a12.74 12.74 0 0 0 6.24 1.628h.006c7.066 0 12.79-5.732 12.79-12.8 0-3.42-1.332-6.636-3.75-9.054A12.716 12.716 0 0 0 16.004 3.2zm0 23.376h-.004a10.61 10.61 0 0 1-5.408-1.48l-.388-.23-3.896 1.004 1.04-3.796-.252-.402a10.583 10.583 0 0 1-1.628-5.672c0-5.862 4.77-10.632 10.638-10.632 2.84 0 5.51 1.108 7.518 3.118a10.565 10.565 0 0 1 3.112 7.52c0 5.864-4.768 10.57-10.732 10.57zm5.834-7.958c-.32-.16-1.892-.934-2.186-1.04-.292-.106-.506-.16-.72.16-.212.32-.826 1.04-1.012 1.252-.186.214-.374.24-.694.08-.32-.16-1.35-.498-2.572-1.586-.95-.848-1.592-1.896-1.778-2.216-.186-.32-.02-.492.14-.652.144-.144.32-.374.48-.56.16-.186.212-.32.32-.534.106-.212.054-.4-.026-.56-.08-.16-.72-1.734-.986-2.374-.26-.624-.526-.538-.72-.548l-.614-.01c-.212 0-.56.08-.852.4-.294.32-1.12 1.094-1.12 2.668s1.146 3.094 1.306 3.308c.16.212 2.256 3.444 5.466 4.83.764.33 1.36.526 1.824.674.766.244 1.464.21 2.016.128.614-.092 1.892-.774 2.16-1.52.266-.746.266-1.386.186-1.52-.08-.134-.294-.214-.614-.374z" />
+        </svg>
       </a>
 
       {/* Main Content */}
@@ -677,15 +678,6 @@ export default function App() {
               <div className="text-[11px] text-[#F5D77F] font-semibold">
                 14 SPI Lockstitch · 9000 Micro-Velvet · Pure Crinkle Chiffon
               </div>
-              <a
-                href="https://wa.me/923476128734"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-emerald-400 hover:underline"
-              >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>WhatsApp: +92 347 6128734</span>
-              </a>
             </div>
 
             <div className="space-y-2">
